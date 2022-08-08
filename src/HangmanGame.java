@@ -18,6 +18,7 @@ public class HangmanGame {
     public static void hangmanArt() {
         if (count == 1) {
             System.out.println("Sorry! Wrong guess, please try again!");
+            System.out.println("   ____________");
             System.out.println("   |");
             System.out.println("   |");
             System.out.println("   |");
