@@ -13,4 +13,19 @@ public class HangmanGame {
         //Nicks test commit
         System.out.println("Hello");
     }
+
+    // method for displaying ASCII ART
+    public static void hangmanArt() {
+        if (count == 1) {
+            System.out.println("Sorry! Wrong guess, please try again!");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("___|___");
+        }
+    }
 }
