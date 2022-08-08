@@ -10,6 +10,7 @@ public class HangmanGame {
         while (count < 7)
             System.out.println("Guess a letter in the word!");
 
-
+        //Nicks test commit
+        System.out.println("Hello");
     }
 }
