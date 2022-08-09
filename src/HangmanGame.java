@@ -9,8 +9,10 @@ public class HangmanGame {
 
     public static final Random RANDOM = new Random();
 
-    // The total amount of tries a user can have before "GAME OVER"
-    public static final int failedAttempts = 7;
+    // The total amount of tries a user can have before "GAME OVER" varies on Level selected
+    public static final int failedAttemptsLevel1 = 10;
+    public static final int failedAttemptsLevel2= 7;
+    public static final int failedAttemptsLevel3 = 5;
 
     public static void main(String[] args) {
         Scanner userGuess = new Scanner(System.in);
@@ -41,6 +43,8 @@ public class HangmanGame {
             e.printStackTrace();
         }
 
+        //Nicks test commit
+        System.out.println("Hello");
     }
 
     // method for displaying ASCII ART
