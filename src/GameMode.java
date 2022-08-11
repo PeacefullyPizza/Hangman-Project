@@ -1,49 +1,23 @@
-import java.util.Random;
-import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
+import java.util.Scanner;
 
-public class HangmanGame {
+public class GameMode {
+    public static void gameModeMenu() {
 
-    Boolean gameOver = false;
-    // Counter for keeping track of user guesses
-    static int counter;
+        System.out.println("|==================================================|");
+        System.out.println("|---------------------LEVELS-----------------------|");
+        System.out.println("|==================================================|");
+        System.out.println("|         Please select a difficulty level         |");
+        System.out.println("|                  Beginner: 1                     |");
+        System.out.println("|                Intermediate: 2                   |");
+        System.out.println("|                    Hard: 3                       |");
+        System.out.println("|                    EXIT: -1                      |");
+        System.out.println("|==================================================|");
 
-    public static void main(String[] args) {
-
-        GameMode.gameModeMenu();
-        // get input from user
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter your guess: ");
-        // Calling the method for determining the difficulty
-
-
-        // create Random object
-        Random rand = new Random();
-        String character;
-        boolean complete = false;
-        while (input.hasNext()) {
-            character = input.next();
-            input.nextLine();
-            System.out.println(character);
-            counter++;
-            HangmanArt.hangmanArt(counter);
-            /*if (DataValidation.checkForLetter(word, character)) {
-                System.out.println("   _____");
-                System.out.println("       |");
-                System.out.println("       |");
-                System.out.println("       |");
-                System.out.println("       |");
-                System.out.println("_______|");
-            }*/
-        }
-    }
-
-    // get input for level selection
-    /*private static void gameModeMenu() {
-        System.out.println("---------------------LEVELS----------------------");
-        System.out.println("Beginner: 1 | Intermediate: 2 | Hard: 3 | EXIT: 4");
-        System.out.println("Please select the difficulty level(1,2,3) or 4 to Exit: ");
+        String word;
+        String[] words;
 
         int userSelection = 0;
         Random rand = new Random();
@@ -104,6 +78,5 @@ public class HangmanGame {
             System.err.println("ERROR: Sorry the file could not be found!");
             e.printStackTrace();
         }
-    }*/
+    }
 }
-
