@@ -15,32 +15,37 @@ public class HangmanGame {
     public static void main(String[] args) {
         Scanner userGuess = new Scanner(System.in);
         try {
+            // Reading level 1 words from file
             File level1Words = new File("Level1Words.txt");
-            File level2Words = new File("Level2Words.txt");
-            File level3Words = new File("Level3Words.txt");
             Scanner level1Reader = new Scanner(level1Words);
-            Scanner level2Reader = new Scanner(level2Words);
-            Scanner level3Reader = new Scanner(level3Words);
             while (level1Reader.hasNextLine()) {
                 String level1Data = level1Reader.nextLine();
                 System.out.println(level1Data);
             }
             level1Reader.close();
+
+            // Reading level 2 words from file
+            File level2Words = new File("Level2Words.txt");
+            Scanner level2Reader = new Scanner(level2Words);
             while (level2Reader.hasNextLine()) {
                 String level2Data = level2Reader.nextLine();
                 System.out.println(level2Data);
             }
             level2Reader.close();
+
+            // Reading level 3 words from file
+            File level3Words = new File("Level3Words.txt");
+            Scanner level3Reader = new Scanner(level3Words);
             while (level3Reader.hasNextLine()) {
                 String level3Data = level3Reader.nextLine();
                 System.out.println(level3Data);
             }
             level3Reader.close();
+
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-
     }
 
     // method for displaying ASCII ART
