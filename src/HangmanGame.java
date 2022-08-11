@@ -1,3 +1,4 @@
+import javax.xml.crypto.Data;
 import java.util.Random;
 import java.util.Scanner;
 import java.io.File;
@@ -12,12 +13,15 @@ public class HangmanGame {
     private static int maxGuesses = 7;
     private static String userGuess;
     Boolean gameOver = false;
+    static String word;
+    static String[] words;
 
     public static void main(String[] args) {
         // get input from user
         Scanner input = new Scanner(System.in);
         System.out.print("Enter your guess: ");
 
+        Random rand = new Random();
         String character;
         boolean complete = false;
         if (input.hasNext()) {
@@ -25,13 +29,16 @@ public class HangmanGame {
             input.nextLine();
             System.out.println(character);
 
+
             try {
                 // Reading level 1 words from file
                 File level1Words = new File("Level1Words.txt");
                 Scanner level1Reader = new Scanner(level1Words);
                 while (level1Reader.hasNextLine()) {
                     String level1Data = level1Reader.nextLine();
-                    System.out.println(level1Data);
+                    words = level1Data.split("\\s+");
+                    word = words[rand.nextInt(3)];
+                    System.out.println(word);
                 }
                 level1Reader.close();
 
@@ -55,6 +62,14 @@ public class HangmanGame {
             } catch (FileNotFoundException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
+            }
+            if (DataValidation.checkForLetter(word, character)) {
+                System.out.println("   _____");
+                System.out.println("       |");
+                System.out.println("       |");
+                System.out.println("       |");
+                System.out.println("       |");
+                System.out.println("_______|");
             }
         }
     }
