@@ -3,98 +3,63 @@ public class HangmanArt {
     private static int maxGuesses = 7;
 
     // passing the number of guesses to the hangmanArt method
-    public static void hangmanArt(int guessess) {
-        if (guessess == maxGuesses) {
+    public static void hangmanArt(int guesses) {
+        if (guesses == maxGuesses) {
             System.out.println("   _____");
             System.out.println("   |   |");
             System.out.println("   O   |");
             System.out.println("  /|\\  |");
             System.out.println("  / \\  |");
             System.out.println("_______|");
-        } else if (guessess == 6) {
+        } else if (guesses == 6) {
             System.out.println("   _____");
             System.out.println("   |   |");
             System.out.println("   O   |");
             System.out.println("  /|\\  |");
             System.out.println("  /    |");
             System.out.println("_______|");
-        } else if (guessess == 5) {
+        } else if (guesses == 5) {
             System.out.println("   _____");
             System.out.println("   |   |");
             System.out.println("   O   |");
             System.out.println("  /|\\  |");
             System.out.println("       |");
             System.out.println("_______|");
-        } else if (guessess == 4) {
+        } else if (guesses == 4) {
             System.out.println("   _____");
             System.out.println("   |   |");
             System.out.println("   O   |");
             System.out.println("  /|   |");
             System.out.println("       |");
             System.out.println("_______|");
-        } else if (guessess == 3) {
+        } else if (guesses == 3) {
             System.out.println("   _____");
             System.out.println("   |   |");
             System.out.println("   O   |");
             System.out.println("   |   |");
             System.out.println("       |");
             System.out.println("_______|");
-        } else if (guessess == 2) {
+        } else if (guesses == 2) {
             System.out.println("   _____");
             System.out.println("   |   |");
             System.out.println("   O   |");
             System.out.println("       |");
             System.out.println("       |");
             System.out.println("_______|");
-        } else if (guessess == 1) {
+        } else if (guesses == 1) {
             System.out.println("   _____");
             System.out.println("   |   |");
             System.out.println("       |");
             System.out.println("       |");
             System.out.println("       |");
             System.out.println("_______|");
-        } else if (guessess == 0) {
+        } else if (guesses == 0) {
             System.out.println("   _____");
             System.out.println("       |");
             System.out.println("       |");
             System.out.println("       |");
             System.out.println("       |");
             System.out.println("_______|");
-        }/* else if (maxGuesses == 8) {
-            System.out.println("        ");
-            System.out.println("       |");
-            System.out.println("       |");
-            System.out.println("       |");
-            System.out.println("       |");
-            System.out.println("_______|");
-        } else if (maxGuesses == 9) {
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("       |");
-            System.out.println("       |");
-            System.out.println("_______|");
-        } else if (maxGuesses == 10) {
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("_______|");
-        } else if (maxGuesses == 11) {
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("_______ ");
-        } else {
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-            System.out.println("        ");
-        }*/
+        }
     }
 }
