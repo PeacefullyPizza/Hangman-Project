@@ -5,62 +5,154 @@ import java.io.FileNotFoundException;
 
 
 public class HangmanGame {
-    private static final int count = 0;
 
     public static final Random RANDOM = new Random();
 
     // The total amount of tries a user can have before "GAME OVER"
-    public static final int failedAttempts = 7;
+    private static int maxGuesses = 7;
+    private static String userGuess;
+    Boolean gameOver = false;
 
     public static void main(String[] args) {
-        Scanner userGuess = new Scanner(System.in);
-        try {
-            // Reading level 1 words from file
-            File level1Words = new File("Level1Words.txt");
-            Scanner level1Reader = new Scanner(level1Words);
-            while (level1Reader.hasNextLine()) {
-                String level1Data = level1Reader.nextLine();
-                System.out.println(level1Data);
-            }
-            level1Reader.close();
+        // get input from user
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter your guess: ");
 
-            // Reading level 2 words from file
-            File level2Words = new File("Level2Words.txt");
-            Scanner level2Reader = new Scanner(level2Words);
-            while (level2Reader.hasNextLine()) {
-                String level2Data = level2Reader.nextLine();
-                System.out.println(level2Data);
-            }
-            level2Reader.close();
+        String character;
+        boolean complete = false;
+        if (input.hasNext()) {
+            character = input.next();
+            input.nextLine();
+            System.out.println(character);
 
-            // Reading level 3 words from file
-            File level3Words = new File("Level3Words.txt");
-            Scanner level3Reader = new Scanner(level3Words);
-            while (level3Reader.hasNextLine()) {
-                String level3Data = level3Reader.nextLine();
-                System.out.println(level3Data);
-            }
-            level3Reader.close();
+            try {
+                // Reading level 1 words from file
+                File level1Words = new File("Level1Words.txt");
+                Scanner level1Reader = new Scanner(level1Words);
+                while (level1Reader.hasNextLine()) {
+                    String level1Data = level1Reader.nextLine();
+                    System.out.println(level1Data);
+                }
+                level1Reader.close();
 
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+                // Reading level 2 words from file
+                File level2Words = new File("Level2Words.txt");
+                Scanner level2Reader = new Scanner(level2Words);
+                while (level2Reader.hasNextLine()) {
+                    String level2Data = level2Reader.nextLine();
+                    System.out.println(level2Data);
+                }
+                level2Reader.close();
+
+                // Reading level 3 words from file
+                File level3Words = new File("Level3Words.txt");
+                Scanner level3Reader = new Scanner(level3Words);
+                while (level3Reader.hasNextLine()) {
+                    String level3Data = level3Reader.nextLine();
+                    System.out.println(level3Data);
+                }
+                level3Reader.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
         }
     }
 
-    // method for displaying ASCII ART
-    public static void hangmanArt() {
-        if (count == 1) {
-            System.out.println("Sorry! Wrong guess, please try again!");
-            System.out.println("   ____________");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("___|___");
+            // method for displaying ASCII ART
+            public static void hangmanArt () {
+                if (maxGuesses == 0) {
+                    System.out.println("   _____");
+                    System.out.println("   |   |");
+                    System.out.println("   O   |");
+                    System.out.println("  /|\\  |");
+                    System.out.println("  / \\  |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 1) {
+                    System.out.println("   _____");
+                    System.out.println("   |   |");
+                    System.out.println("   O   |");
+                    System.out.println("  /|\\  |");
+                    System.out.println("  /    |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 2) {
+                    System.out.println("   _____");
+                    System.out.println("   |   |");
+                    System.out.println("   O   |");
+                    System.out.println("  /|\\  |");
+                    System.out.println("       |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 3) {
+                    System.out.println("   _____");
+                    System.out.println("   |   |");
+                    System.out.println("   O   |");
+                    System.out.println("  /|   |");
+                    System.out.println("       |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 4) {
+                    System.out.println("   _____");
+                    System.out.println("   |   |");
+                    System.out.println("   O   |");
+                    System.out.println("   |   |");
+                    System.out.println("       |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 5) {
+                    System.out.println("   _____");
+                    System.out.println("   |   |");
+                    System.out.println("   O   |");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 6) {
+                    System.out.println("   _____");
+                    System.out.println("   |   |");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 7) {
+                    System.out.println("   _____");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 8) {
+                    System.out.println("        ");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 9) {
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("       |");
+                    System.out.println("       |");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 10) {
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("_______|");
+                } else if (maxGuesses == 11) {
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("_______ ");
+                } else {
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                    System.out.println("        ");
+                }
+            }
         }
-    }
-}
+
