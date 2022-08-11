@@ -7,36 +7,45 @@ public class HangmanGame {
     static String word;
     static String[] words;
     Boolean gameOver = false;
+    // Counter for keeping track of user guesses
+    static int counter;
 
     public static void main(String[] args) {
+
         gameModeMenu();
         // get input from user
         Scanner input = new Scanner(System.in);
         System.out.print("Enter your guess: ");
+        // Calling the method for determining the difficulty
 
+
+        // create Random object
         Random rand = new Random();
         String character;
         boolean complete = false;
-        if (input.hasNext()) {
+        while (input.hasNext()) {
             character = input.next();
             input.nextLine();
             System.out.println(character);
-
-            if (DataValidation.checkForLetter(word, character)) {
+            counter++;
+            HangmanArt.hangmanArt(counter);
+            /*if (DataValidation.checkForLetter(word, character)) {
                 System.out.println("   _____");
                 System.out.println("       |");
                 System.out.println("       |");
                 System.out.println("       |");
                 System.out.println("       |");
                 System.out.println("_______|");
-            }
+            }*/
         }
     }
 
     // get input for level selection
     private static void gameModeMenu() {
-        System.out.println("Please select the difficulty level(1,2,3) or 4 to Exit: ");
+        System.out.println("---------------------LEVELS----------------------");
         System.out.println("Beginner: 1 | Intermediate: 2 | Hard: 3 | EXIT: 4");
+        System.out.println("Please select the difficulty level(1,2,3) or 4 to Exit: ");
+
         int userSelection = 0;
         Random rand = new Random();
         Scanner levelSelection = new Scanner(System.in);
