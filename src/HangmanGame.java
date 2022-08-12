@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,6 +11,7 @@ public class HangmanGame {
     static int incorrect_guesses;
     static String[] letters;
     static String[] letters_copy;
+    static String[] guessed_letters;
 
     public static void main(String[] args) {
 
@@ -24,12 +26,13 @@ public class HangmanGame {
         System.out.println("_______|");
 
         letters = word.split("");
-        letters_copy = letters;
+        letters_copy = letters.clone();
 
         for (int i=0; i < letters.length; i++) {
             //letters[i] = "_ ";
             System.out.print("_ ");
-
+            letters_copy[i] = "_ ";
+            //letters[i] = "_ ";
         }
         System.out.print("\n");
 
@@ -42,22 +45,32 @@ public class HangmanGame {
         while (input.hasNext()) {
             character = input.next();
             input.nextLine();
-            System.out.println(character);
+            //guessed_letters[counter] = character;
+            //for (int i=0; i < guessed_letters.length; i++) {
+            //    System.out.print(i);
+            //}
             if (DataValidation.checkForLetter(word, character)) {
 
                 HangmanArt.hangmanArt(counter);
                 int index = word.indexOf(character);
-
+                letters_copy[index] = character;
                 for (int i=0; i < letters.length; i++) {
                     if (letters[i].equals(character)){
+                        //letters[i] = character;
                         letters[i] = character;
-                        System.out.print(letters[index] + " ");
+                        letters_copy[i] = character;
+                        //System.out.print(letters_copy[i] + " ");
                     } else {
                         //letters[i] = "_ ";
-                        System.out.print("_ ");
+                        //System.out.print("_ ");
+                        continue;
                     }
 
 
+
+                }
+                for (int i=0; i < letters.length; i++) {
+                    System.out.print(letters_copy[i] + " ");
                 }
             }
             else {
@@ -65,8 +78,8 @@ public class HangmanGame {
                 counter++;
                 HangmanArt.hangmanArt(counter);
                 for (int i=0; i < letters.length; i++) {
-                    letters[i] = "_ ";
-                    System.out.print(letters[i]);
+                    //letters[i] = "_ ";
+                    System.out.print("_ ");
 
                 }
             }

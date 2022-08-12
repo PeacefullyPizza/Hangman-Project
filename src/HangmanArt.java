@@ -12,6 +12,9 @@ public class HangmanArt {
             System.out.println("|  / \\  ");
             System.out.println("|_______|");
             System.out.println("|_______|");
+            System.out.println("\n----------");
+            System.out.println("GAME OVER");
+            System.exit(0);
         } else if (guesses == 6) {
             System.out.println("_____    ");
             System.out.println("|   |    ");
@@ -60,7 +63,8 @@ public class HangmanArt {
             System.out.println("|        ");
             System.out.println("|_______|");
             System.out.println("|_______|");
-        } else if (guesses == 0) {
+        }
+        else if (guesses == 0) {
             System.out.println("_____    ");
             System.out.println("|        ");
             System.out.println("|        ");
@@ -68,10 +72,6 @@ public class HangmanArt {
             System.out.println("|        ");
             System.out.println("|_______|");
             System.out.println("|_______|");
-        } else {
-            System.out.println("\n----------");
-            System.out.println("GAME OVER");
-            System.exit(0);
         }
     }
 }
