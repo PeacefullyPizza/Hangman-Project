@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Formatter;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -24,6 +26,7 @@ public class GameMode {
 
         String word = null;
         String[] words;
+        Formatter output;
 
         int userSelection = 0;
         Random rand = new Random();
@@ -47,19 +50,29 @@ public class GameMode {
                         word = words[rand.nextInt(3)];
 
 
+
                     }
                     level1Reader.close();
                 }
                 // Reading level 2 words from file
                 case 2 -> {
+                    //output = new Formatter("Level2Words.txt");
                     File level2Words = new File("Level2Words.txt");
                     Scanner level2Reader = new Scanner(level2Words);
+                    //StringBuilder sb = new StringBuilder();
                     while (level2Reader.hasNextLine()) {
+                        String words2;
                         String level2Data = level2Reader.nextLine();
                         // Selecting random word from Level2Words.txt
+                        //StringBuffer sb = new StringBuffer();
+                        //sb.append(level2Reader.nextLine());
+                        //words2 = sb.toString();
                         words = level2Data.split("\\s+");
                         word = words[rand.nextInt(3)];
-                        System.out.println(word);
+                        //words2 = words2.replaceAll(word, "");
+                        words2 = Arrays.toString(words);
+                        //words2.replaceAll("{"+word+"}", "");
+                        System.out.println(words2);
                     }
                     level2Reader.close();
                 }
