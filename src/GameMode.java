@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class GameMode {
     public static String gameModeMenu() {
 
-
         System.out.println("██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
         System.out.println("██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
         System.out.println("███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
@@ -16,7 +15,7 @@ public class GameMode {
         System.out.println("     |==================================================|");
         System.out.println("     |---------------------LEVELS-----------------------|");
         System.out.println("     |==================================================|");
-        System.out.println("     |         Please select a difficulty level         |");
+        System.out.println("     |         Please select a difficulty level:        |");
         System.out.println("     |                  Beginner: 1                     |");
         System.out.println("     |                Intermediate: 2                   |");
         System.out.println("     |                    Hard: 3                       |");
@@ -25,7 +24,6 @@ public class GameMode {
 
         String word = null;
         String[] words;
-
 
         int userSelection = 0;
         Random rand = new Random();
