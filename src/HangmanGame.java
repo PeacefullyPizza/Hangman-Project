@@ -20,12 +20,13 @@ public class HangmanGame {
         String word = GameMode.gameModeMenu();
         // get input from user
         Scanner input = new Scanner(System.in);
-        System.out.println("   _____");
-        System.out.println("       |");
-        System.out.println("       |");
-        System.out.println("       |");
-        System.out.println("       |");
-        System.out.println("_______|");
+        System.out.println("_____    ");
+        System.out.println("|   |    ");
+        System.out.println("|        ");
+        System.out.println("|        ");
+        System.out.println("|        ");
+        System.out.println("|_______|");
+        System.out.println("|_______|");
 
         letters = word.split("");
         letters_copy = letters.clone();
