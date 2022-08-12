@@ -9,6 +9,7 @@ public class HangmanGame {
     static int counter;
     static int incorrect_guesses;
     static String[] letters;
+    static String[] letters_copy;
 
     public static void main(String[] args) {
 
@@ -23,6 +24,7 @@ public class HangmanGame {
         System.out.println("_______|");
 
         letters = word.split("");
+        letters_copy = letters;
 
         for (int i=0; i < letters.length; i++) {
             //letters[i] = "_ ";
@@ -42,12 +44,14 @@ public class HangmanGame {
             input.nextLine();
             System.out.println(character);
             if (DataValidation.checkForLetter(word, character)) {
+
                 HangmanArt.hangmanArt(counter);
                 int index = word.indexOf(character);
+
                 for (int i=0; i < letters.length; i++) {
                     if (letters[i].equals(character)){
-                        //letters[i] = character;
-                        System.out.print(letters[i] + " ");
+                        letters[i] = character;
+                        System.out.print(letters[index] + " ");
                     } else {
                         //letters[i] = "_ ";
                         System.out.print("_ ");
