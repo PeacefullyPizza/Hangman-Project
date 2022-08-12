@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,6 +19,7 @@ public class GameMode {
 
         String word;
         String[] words;
+        String[] letters;
 
         int userSelection = 0;
         Random rand = new Random();
@@ -39,7 +41,14 @@ public class GameMode {
                         // Selecting random word from Level1Words.txt
                         words = level1Data.split("\\s+");
                         word = words[rand.nextInt(3)];
-                        System.out.println(word);
+                        letters = word.split("");
+                        for (int i=0; i < letters.length; i++) {
+                            letters[i] = "_ ";
+                            System.out.print(letters[i]);
+
+                        }
+                        System.out.print("\n");
+
                     }
                     level1Reader.close();
                 }

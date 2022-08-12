@@ -13,6 +13,12 @@ public class HangmanGame {
         GameMode.gameModeMenu();
         // get input from user
         Scanner input = new Scanner(System.in);
+        System.out.println("   _____");
+        System.out.println("       |");
+        System.out.println("       |");
+        System.out.println("       |");
+        System.out.println("       |");
+        System.out.println("_______|");
         System.out.print("Enter your guess: ");
 
         // create Random object
