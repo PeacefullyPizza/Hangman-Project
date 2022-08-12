@@ -15,8 +15,11 @@ public class HangmanGame {
     static ArrayList<String> guessed_letters = new ArrayList<String>();
 
     public static void main(String[] args) {
+
         Sounds.backgroundMusic();
+
         String[] words = GameMode.gameModeMenu();
+
         word = words[rand.nextInt(3)];
         List<String> list = new ArrayList<String>(Arrays.asList(words));
         list.remove(word);
