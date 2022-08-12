@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class HangmanGame {
@@ -16,7 +14,7 @@ public class HangmanGame {
     static ArrayList<String> guessed_letters = new ArrayList<String>();
 
     public static void main(String[] args) {
-
+        Sounds.backgroundMusic();
         String word = GameMode.gameModeMenu();
         // get input from user
         Scanner input = new Scanner(System.in);
