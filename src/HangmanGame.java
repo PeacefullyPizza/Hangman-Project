@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -11,7 +12,8 @@ public class HangmanGame {
     static int incorrect_guesses;
     static String[] letters;
     static String[] letters_copy;
-    static String[] guessed_letters;
+    //static String[] guessed_letters;
+    static ArrayList<String> guessed_letters = new ArrayList<String>();
 
     public static void main(String[] args) {
 
@@ -44,6 +46,7 @@ public class HangmanGame {
         boolean complete = false;
         while (input.hasNext()) {
             character = input.next();
+
             input.nextLine();
             //guessed_letters[counter] = character;
             //for (int i=0; i < guessed_letters.length; i++) {
@@ -54,7 +57,9 @@ public class HangmanGame {
                 HangmanArt.hangmanArt(counter);
                 int index = word.indexOf(character);
                 letters_copy[index] = character;
+                guessed_letters.add(character);
                 for (int i=0; i < letters.length; i++) {
+
                     if (letters[i].equals(character)){
                         //letters[i] = character;
                         letters[i] = character;
@@ -72,8 +77,13 @@ public class HangmanGame {
                 for (int i=0; i < letters.length; i++) {
                     System.out.print(letters_copy[i] + " ");
                 }
+                System.out.print("Guessed Letters: ");
+                for (int i=0; i < guessed_letters.size(); i++) {
+                    System.out.print(guessed_letters.get(i) + " ");
+                }
             }
             else {
+                guessed_letters.add(character);
                 incorrect_guesses++;
                 counter++;
                 HangmanArt.hangmanArt(counter);
@@ -82,7 +92,13 @@ public class HangmanGame {
                     System.out.print("_ ");
 
                 }
+                System.out.print("Guessed Letters: ");
+                for (int i=0; i < guessed_letters.size(); i++) {
+                    System.out.print(guessed_letters.get(i) + " ");
+                }
+
             }
+
 
         }
     }
