@@ -47,13 +47,7 @@ public class GameMode {
                         // Selecting random word from Level1Words.txt
                         words = level1Data.split("\\s+");
                         word = words[rand.nextInt(3)];
-                        /*letters = word.split("");
-                        for (int i=0; i < letters.length; i++) {
-                            letters[i] = "_ ";
-                            System.out.print(letters[i]);
 
-                        }
-                        System.out.print("\n");*/
 
                     }
                     level1Reader.close();
