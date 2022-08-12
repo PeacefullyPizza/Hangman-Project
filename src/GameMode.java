@@ -6,15 +6,22 @@ import java.util.Scanner;
 public class GameMode {
     public static String gameModeMenu() {
 
-        System.out.println("|==================================================|");
-        System.out.println("|---------------------LEVELS-----------------------|");
-        System.out.println("|==================================================|");
-        System.out.println("|         Please select a difficulty level         |");
-        System.out.println("|                  Beginner: 1                     |");
-        System.out.println("|                Intermediate: 2                   |");
-        System.out.println("|                    Hard: 3                       |");
-        System.out.println("|                    EXIT: -1                      |");
-        System.out.println("|==================================================|");
+
+        System.out.println("██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
+        System.out.println("██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
+        System.out.println("███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
+        System.out.println("██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║");
+        System.out.println("██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║");
+        System.out.println("╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
+        System.out.println("     |==================================================|");
+        System.out.println("     |---------------------LEVELS-----------------------|");
+        System.out.println("     |==================================================|");
+        System.out.println("     |         Please select a difficulty level         |");
+        System.out.println("     |                  Beginner: 1                     |");
+        System.out.println("     |                Intermediate: 2                   |");
+        System.out.println("     |                    Hard: 3                       |");
+        System.out.println("     |                    EXIT: -1                      |");
+        System.out.println("     |==================================================|");
 
         String word = null;
         String[] words;
