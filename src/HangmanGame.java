@@ -51,6 +51,8 @@ public class HangmanGame {
             //for (int i=0; i < guessed_letters.length; i++) {
             //    System.out.print(i);
             //}
+
+            // Boolean data validation method that is passed a word and the users chosen letter.
             if (DataValidation.checkForLetter(word, character)) {
 
                 HangmanArt.hangmanArt(counter);
@@ -59,7 +61,7 @@ public class HangmanGame {
                 guessed_letters.add(character);
                 for (int i=0; i < letters.length; i++) {
 
-                    if (letters[i].equals(character)){
+                    if (letters[i].equalsIgnoreCase(character)){
                         //letters[i] = character;
                         letters[i] = character;
                         letters_copy[i] = character;
@@ -82,10 +84,15 @@ public class HangmanGame {
                 }
             }
             else {
+                //add letter to ArrayList of guesseed letters
                 guessed_letters.add(character);
-                incorrect_guesses++;
-                counter++;
+
+                counter++; // increment counter
+
+                // getting hangman art based on counter value.
                 HangmanArt.hangmanArt(counter);
+
+
                 for (int i=0; i < letters.length; i++) {
                     //letters[i] = "_ ";
                     System.out.print("_ ");
@@ -96,6 +103,20 @@ public class HangmanGame {
                     System.out.print(guessed_letters.get(i) + " ");
                 }
 
+            }
+            String completeWord = "";
+            for (int i=0; i < letters_copy.length; i++) {
+                if(letters_copy[i] != "_ ") {
+                    completeWord += letters_copy[i];
+                }
+
+
+            }
+            if (completeWord.length() == word.length()) {
+                System.out.println("\n--------------");
+                System.out.println("WINNER !!!!!!!");
+                System.out.println("--------------");
+                System.exit(0);
             }
 
 
