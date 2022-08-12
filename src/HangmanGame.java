@@ -11,6 +11,7 @@ public class HangmanGame {
     static String[] letters;
     static String[] letters_copy;
     static String word;
+    static boolean complete = false;
     //static String[] guessed_letters;
     static ArrayList<String> guessed_letters = new ArrayList<String>();
 
@@ -18,8 +19,10 @@ public class HangmanGame {
 
         Sounds.backgroundMusic();
 
-        String[] words = GameMode.gameModeMenu();
+        String[] wordsFULL = GameMode.gameModeMenu();
 
+        while (!complete) {
+            String[] words = wordsFULL;
         word = words[rand.nextInt(3)];
         List<String> list = new ArrayList<String>(Arrays.asList(words));
         list.remove(word);
@@ -51,7 +54,7 @@ public class HangmanGame {
         // create Random object
         //Random rand = new Random();
         String character;
-        boolean complete = false;
+
         while (input.hasNext()) {
             character = input.next();
 
@@ -68,9 +71,9 @@ public class HangmanGame {
                 int index = word.indexOf(character);
                 letters_copy[index] = character;
                 guessed_letters.add(character);
-                for (int i=0; i < letters.length; i++) {
+                for (int i = 0; i < letters.length; i++) {
 
-                    if (letters[i].equalsIgnoreCase(character)){
+                    if (letters[i].equalsIgnoreCase(character)) {
                         //letters[i] = character;
                         letters[i] = character;
                         letters_copy[i] = character;
@@ -82,17 +85,15 @@ public class HangmanGame {
                     }
 
 
-
                 }
-                for (int i=0; i < letters.length; i++) {
+                for (int i = 0; i < letters.length; i++) {
                     System.out.print(letters_copy[i] + " ");
                 }
                 System.out.print("Guessed Letters: ");
-                for (int i=0; i < guessed_letters.size(); i++) {
+                for (int i = 0; i < guessed_letters.size(); i++) {
                     System.out.print(guessed_letters.get(i) + " ");
                 }
-            }
-            else {
+            } else {
                 //add letter to ArrayList of guesseed letters
                 guessed_letters.add(character);
 
@@ -102,20 +103,20 @@ public class HangmanGame {
                 HangmanArt.hangmanArt(counter);
 
 
-                for (int i=0; i < letters.length; i++) {
+                for (int i = 0; i < letters.length; i++) {
                     //letters[i] = "_ ";
                     System.out.print("_ ");
 
                 }
                 System.out.print("Guessed Letters: ");
-                for (int i=0; i < guessed_letters.size(); i++) {
+                for (int i = 0; i < guessed_letters.size(); i++) {
                     System.out.print(guessed_letters.get(i) + " ");
                 }
 
             }
             String completeWord = "";
-            for (int i=0; i < letters_copy.length; i++) {
-                if(letters_copy[i] != "_ ") {
+            for (int i = 0; i < letters_copy.length; i++) {
+                if (letters_copy[i] != "_ ") {
                     completeWord += letters_copy[i];
                 }
 
@@ -125,9 +126,17 @@ public class HangmanGame {
                 System.out.println("\n--------------");
                 System.out.println("WINNER !!!!!!!");
                 System.out.println("--------------");
-                System.exit(0);
+                //System.exit(0);
+                System.out.println("Play again?\n Y for yes, N for no\n");
+                String answer = input.next();
+                if (answer == "Y") {
+                    complete = false;
+                }
+                if (answer == "N") {
+                    complete = true;
+                }
             }
-
+        }
 
         }
     }

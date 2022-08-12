@@ -28,6 +28,7 @@ public class GameMode {
         Random rand = new Random();
         int userSelection = 0;
 
+
         Scanner levelSelection = new Scanner(System.in);
         if (levelSelection.hasNextInt()) {
             userSelection = levelSelection.nextInt();
