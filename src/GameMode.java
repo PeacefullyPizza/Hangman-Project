@@ -1,12 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.Formatter;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class GameMode {
-    public static String gameModeMenu() {
+    static String[] words;
+    public static String[] gameModeMenu() {
 
         System.out.println("██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
         System.out.println("██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
@@ -25,11 +23,11 @@ public class GameMode {
         System.out.println("     |==================================================|");
 
         String word = null;
-        String[] words;
-        Formatter output;
 
-        int userSelection = 0;
+        Formatter output;
         Random rand = new Random();
+        int userSelection = 0;
+
         Scanner levelSelection = new Scanner(System.in);
         if (levelSelection.hasNextInt()) {
             userSelection = levelSelection.nextInt();
@@ -68,11 +66,14 @@ public class GameMode {
                         //sb.append(level2Reader.nextLine());
                         //words2 = sb.toString();
                         words = level2Data.split("\\s+");
-                        word = words[rand.nextInt(3)];
-                        //words2 = words2.replaceAll(word, "");
-                        words2 = Arrays.toString(words);
-                        //words2.replaceAll("{"+word+"}", "");
-                        System.out.println(words2);
+
+                        //words2 = words.replaceAll("{"+word+"}", "");
+                        //List<String> list = new ArrayList<String>(Arrays.asList(words));
+                        //list.remove(word);
+                        //words = list.toArray(new String[0]);
+
+                        System.out.println(Arrays.toString(words));
+                        //System.out.println(list);
                     }
                     level2Reader.close();
                 }
@@ -98,6 +99,6 @@ public class GameMode {
             System.err.println("ERROR: Sorry the file could not be found!");
             e.printStackTrace();
         }
-        return word;
+        return words;
     }
 }
