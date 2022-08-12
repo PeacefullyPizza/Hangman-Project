@@ -1,3 +1,6 @@
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,7 +16,7 @@ public class HangmanGame {
     //static String[] guessed_letters;
     static ArrayList<String> guessed_letters = new ArrayList<String>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         Sounds.backgroundMusic();
         String word = GameMode.gameModeMenu();
         // get input from user
@@ -113,10 +116,10 @@ public class HangmanGame {
 
             }
             if (completeWord.length() == word.length()) {
+                Sounds.winnerSound();
                 System.out.println("\n--------------");
                 System.out.println("WINNER !!!!!!!");
                 System.out.println("--------------");
-                System.exit(0);
             }
 
 
