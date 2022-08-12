@@ -1,11 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class GameMode {
-    public static void gameModeMenu() {
+    public static String gameModeMenu() {
 
         System.out.println("|==================================================|");
         System.out.println("|---------------------LEVELS-----------------------|");
@@ -17,9 +16,9 @@ public class GameMode {
         System.out.println("|                    EXIT: -1                      |");
         System.out.println("|==================================================|");
 
-        String word;
+        String word = null;
         String[] words;
-        String[] letters;
+
 
         int userSelection = 0;
         Random rand = new Random();
@@ -41,13 +40,13 @@ public class GameMode {
                         // Selecting random word from Level1Words.txt
                         words = level1Data.split("\\s+");
                         word = words[rand.nextInt(3)];
-                        letters = word.split("");
+                        /*letters = word.split("");
                         for (int i=0; i < letters.length; i++) {
                             letters[i] = "_ ";
                             System.out.print(letters[i]);
 
                         }
-                        System.out.print("\n");
+                        System.out.print("\n");*/
 
                     }
                     level1Reader.close();
@@ -87,5 +86,6 @@ public class GameMode {
             System.err.println("ERROR: Sorry the file could not be found!");
             e.printStackTrace();
         }
+        return word;
     }
 }
