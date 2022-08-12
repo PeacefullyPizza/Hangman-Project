@@ -55,19 +55,23 @@ public class HangmanArt {
         } else if (guesses == 1) {
             System.out.println("_____    ");
             System.out.println("|   |    ");
-            System.out.println("|   O    ");
+            System.out.println("|        ");
             System.out.println("|        ");
             System.out.println("|        ");
             System.out.println("|_______|");
             System.out.println("|_______|");
         } else if (guesses == 0) {
             System.out.println("_____    ");
-            System.out.println("|   |    ");
+            System.out.println("|        ");
             System.out.println("|        ");
             System.out.println("|        ");
             System.out.println("|        ");
             System.out.println("|_______|");
             System.out.println("|_______|");
+        } else {
+            System.out.println("\n----------");
+            System.out.println("GAME OVER");
+            System.exit(0);
         }
     }
 }
