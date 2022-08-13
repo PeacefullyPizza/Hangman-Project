@@ -2,7 +2,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class GameMode {
-    public static void gameModeMenu() {
+    public static void gameModeMenu() throws InputMismatchException{
 
         System.out.println("██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
         System.out.println("██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
@@ -13,25 +13,28 @@ public class GameMode {
         System.out.println("     |==================================================|");
         System.out.println("     |---------------------LEVELS-----------------------|");
         System.out.println("     |==================================================|");
-        System.out.println("     |         Please select a difficulty level:        |");
-        System.out.println("     |                  Beginner: 1                     |");
-        System.out.println("     |                Intermediate: 2                   |");
-        System.out.println("     |                    Hard: 3                       |");
-        System.out.println("     |                    EXIT: -1                      |");
+        System.out.println("     |                   Beginner: 1                    |");
+        System.out.println("     |                 Intermediate: 2                  |");
+        System.out.println("     |                     Hard: 3                      |");
+        System.out.println("     |                     EXIT: -1                     |");
         System.out.println("     |==================================================|");
-
+        System.out.println("Please select a difficulty level:");
 // Determine the level the user selects
+
         Scanner levelSelection = new Scanner(System.in);
         int userSelection = 0;
         if (levelSelection.hasNextInt()) {
             userSelection = levelSelection.nextInt();
             levelSelection.nextLine();
-            System.out.println(userSelection);
         }
 
         try {
             // Reading level 1 words from file
             if (userSelection == 1) {
+                System.out.println("     |==================================================|");
+                System.out.println("     |--------Beginner Level Started! Good Luck!--------|");
+                System.out.println("     |==================================================|");
+//                System.out.println("\nBeginner Level Started! Good Luck!\n");
                 System.out.println("_____    ");
                 System.out.println("|        ");
                 System.out.println("|        ");
@@ -43,6 +46,10 @@ public class GameMode {
             }
             // Reading level 2 words from file
             else if (userSelection == 2) {
+                System.out.println("     |==================================================|");
+                System.out.println("     |------Intermediate Level Started! Good Luck!------|");
+                System.out.println("     |==================================================|");
+//                System.out.println("\nIntermediate Level Started! Good Luck!\n");
                 System.out.println("_____    ");
                 System.out.println("|        ");
                 System.out.println("|        ");
@@ -54,6 +61,10 @@ public class GameMode {
             }
             // Reading level 3 words from file
             else if (userSelection == 3) {
+                System.out.println("     |==================================================|");
+                System.out.println("     |----------Hard Level Started! Good Luck!----------|");
+                System.out.println("     |==================================================|");
+//                System.out.println("\nHard Level Started! Good Luck!\n");
                 System.out.println("_____    ");
                 System.out.println("|        ");
                 System.out.println("|        ");
