@@ -7,16 +7,7 @@ public class HangmanGame {
     static Random rand = new Random();
 
     // Counter for keeping track of user guesses
-//    static int counter;
-//    static String[] letters;
-//    static String[] letters2;
-//    static String[] letters3;
-//    static String[] letters_copy;
-//    static String[] letters_copy2;
-//    static String[] letters_copy3;
-//    static String word;
-//    static String word2;
-//    static String word3;
+
     static boolean complete = false;
     //static String[] guessed_letters;
 //    static ArrayList<String> guessed_letters = new ArrayList<String>();
