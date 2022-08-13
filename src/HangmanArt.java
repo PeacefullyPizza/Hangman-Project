@@ -14,6 +14,7 @@ public class HangmanArt {
             System.out.println("|_______|");
             System.out.println("\n----------");
             System.out.println("GAME OVER");
+            Sounds.losingSound();
 
         } else if (guesses == 6) {
             System.out.println("_____    ");

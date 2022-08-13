@@ -24,7 +24,6 @@ public class GameMode {
 
         String word = null;
 
-        Formatter output;
         Random rand = new Random();
         int userSelection = 0;
 
@@ -40,18 +39,16 @@ public class GameMode {
             switch (userSelection) {
                 // Reading level 1 words from file
                 case 1 -> {
-                    File level1Words = new File("Level1Words.txt");
-                    Scanner level1Reader = new Scanner(level1Words);
-                    while (level1Reader.hasNextLine()) {
-                        String level1Data = level1Reader.nextLine();
-                        // Selecting random word from Level1Words.txt
-                        words = level1Data.split("\\s+");
-                        word = words[rand.nextInt(3)];
-
-
-
-                    }
-                    level1Reader.close();
+                    BeginnerLevel.beginnerLevel();
+//                    File level1Words = new File("Level1Words.txt");
+//                    Scanner level1Reader = new Scanner(level1Words);
+//                    while (level1Reader.hasNextLine()) {
+//                        String level1Data = level1Reader.nextLine();
+//                        // Selecting random word from Level1Words.txt
+//                        words = level1Data.split("\\s+");
+//                        word = words[rand.nextInt(3)];
+//                    }
+//                    level1Reader.close();
                 }
                 // Reading level 2 words from file
                 case 2 -> {

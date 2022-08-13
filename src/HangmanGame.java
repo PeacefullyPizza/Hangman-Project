@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class HangmanGame {
@@ -15,13 +16,14 @@ public class HangmanGame {
     //static String[] guessed_letters;
     static ArrayList<String> guessed_letters = new ArrayList<String>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         Sounds.backgroundMusic();
-
-        String[] wordsFULL = GameMode.gameModeMenu();
-
         while (!complete) {
+//        String[] wordsFULL = BeginnerLevel.beginnerLevel();
+                String[] wordsFULL = GameMode.gameModeMenu();
+
+
             String[] words = wordsFULL;
         word = words[rand.nextInt(3)];
         List<String> list = new ArrayList<String>(Arrays.asList(words));
@@ -125,14 +127,15 @@ public class HangmanGame {
             if (completeWord.length() == word.length()) {
                 System.out.println("\n--------------");
                 System.out.println("WINNER !!!!!!!");
+                Sounds.winnerSound();
                 System.out.println("--------------");
                 //System.exit(0);
                 System.out.println("Play again?\n Y for yes, N for no\n");
                 String answer = input.next();
-                if (answer == "Y") {
+                if (Objects.equals(answer, "Y")) {
                     complete = false;
                 }
-                if (answer == "N") {
+                if (Objects.equals(answer, "N")) {
                     complete = true;
                 }
             }
