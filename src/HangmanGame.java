@@ -8,10 +8,15 @@ public class HangmanGame {
 
     // Counter for keeping track of user guesses
     static int counter;
-    static int incorrect_guesses;
     static String[] letters;
+    static String[] letters2;
+    static String[] letters3;
     static String[] letters_copy;
+    static String[] letters_copy2;
+    static String[] letters_copy3;
     static String word;
+    static String word2;
+    static String word3;
     static boolean complete = false;
     //static String[] guessed_letters;
     static ArrayList<String> guessed_letters = new ArrayList<String>();
@@ -20,28 +25,39 @@ public class HangmanGame {
 
         Sounds.backgroundMusic();
         while (!complete) {
-//        String[] wordsFULL = BeginnerLevel.beginnerLevel();
-                String[] wordsFULL = GameMode.gameModeMenu();
+            GameMode.gameModeMenu();
+                String[] wordsFULL = BeginnerLevel.beginnerLevel();
+                String[] wordsFULL2 = IntermediateLevel.intermediateLevel();
+                String[] wordsFULL3 = HardLevel.hardLevel();
 
+            word = BeginnerLevel.words[rand.nextInt(3)];
+            List<String> list = new ArrayList<String>(Arrays.asList(IntermediateLevel.words2));
+            list.remove(word);
+            BeginnerLevel.words = list.toArray(new String[0]);
+            System.out.println(Arrays.toString(BeginnerLevel.words));
 
-            String[] words = wordsFULL;
-        word = words[rand.nextInt(3)];
-        List<String> list = new ArrayList<String>(Arrays.asList(words));
-        list.remove(word);
-        words = list.toArray(new String[0]);
-        System.out.println(Arrays.toString(words));
+            word2 = IntermediateLevel.words2[rand.nextInt(3)];
+            List<String> list2 = new ArrayList<String>(Arrays.asList(IntermediateLevel.words2));
+            list2.remove(word2);
+            IntermediateLevel.words2 = list2.toArray(new String[0]);
+            System.out.println(Arrays.toString(IntermediateLevel.words2));
+
+        word3 = HardLevel.words3[rand.nextInt(3)];
+        List<String> list3 = new ArrayList<String>(Arrays.asList(HardLevel.words3));
+        list3.remove(word3);
+        HardLevel.words3 = list3.toArray(new String[0]);
+        System.out.println(Arrays.toString(HardLevel.words3));
+
         // get input from user
         Scanner input = new Scanner(System.in);
-        System.out.println("_____    ");
-        System.out.println("|   |    ");
-        System.out.println("|        ");
-        System.out.println("|        ");
-        System.out.println("|        ");
-        System.out.println("|_______|");
-        System.out.println("|_______|");
+
 
         letters = word.split("");
+        letters2 = word2.split("");
+        letters3 = word3.split("");
         letters_copy = letters.clone();
+        letters_copy2 = letters2.clone();
+        letters_copy3 = letters3.clone();
 
         for (int i=0; i < letters.length; i++) {
             //letters[i] = "_ ";
@@ -49,6 +65,18 @@ public class HangmanGame {
             letters_copy[i] = "_ ";
             //letters[i] = "_ ";
         }
+            for (int i=0; i < letters2.length; i++) {
+                //letters[i] = "_ ";
+                System.out.print("_ ");
+                letters_copy2[i] = "_ ";
+                //letters[i] = "_ ";
+            }
+            for (int i=0; i < letters3.length; i++) {
+                //letters[i] = "_ ";
+                System.out.print("_ ");
+                letters_copy3[i] = "_ ";
+                //letters[i] = "_ ";
+            }
         System.out.print("\n");
 
         System.out.print("Enter your guess: ");
