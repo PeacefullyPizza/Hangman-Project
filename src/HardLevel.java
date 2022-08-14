@@ -147,9 +147,9 @@ public class HardLevel {
                     System.out.println("Play again?\nY: to Replay\nN: to EXIT\n");
 
                     String answer = input.next();
-                    if (Objects.equals(answer, "Y")) {
+                    if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                         HardLevel.hardLevel();
-                    }else if (Objects.equals(answer, "N")) {
+                    }else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                         writer = new FileWriter(level3Words, false);
                         writer.write("computer controller airplanes");
                         writer.close();
@@ -169,9 +169,9 @@ public class HardLevel {
                     Scanner i = new Scanner(System.in);
 
                     String answer = i.next();
-                    if (Objects.equals(answer, "Y")) {
+                    if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                         HardLevel.hardLevel();
-                    }else if (Objects.equals(answer, "N")) {
+                    }else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                         writer = new FileWriter(level3Words, false);
                         writer.write("computer controller airplanes");
                         writer.close();

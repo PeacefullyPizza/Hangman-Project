@@ -167,11 +167,12 @@ public class BeginnerLevel {
                         System.out.println("Play again?\nY: to Replay\nN: to EXIT\n");
 
                         String answer = input.next();
-                        if (Objects.equals(answer, "Y")) {
+                        if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                             BeginnerLevel.beginnerLevel();
-                        } else if (Objects.equals(answer, "N")) {
+                        } else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                             writer = new FileWriter(level1Words, false);
-                            writer.write("dog eye cat");
+                            writer.write("dog eye cat plum box cake rope hill pen flow bear tray knee dig bike " +
+                                    "red blue zoom tap");
                             writer.close();
                             complete = true;
                             System.exit(0);
@@ -188,11 +189,12 @@ public class BeginnerLevel {
                         Scanner i = new Scanner(System.in);
 
                         String answer = i.next();
-                        if (Objects.equals(answer, "Y")) {
+                        if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                             BeginnerLevel.beginnerLevel();
-                        }else if (Objects.equals(answer, "N")) {
+                        }else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                             writer = new FileWriter(level1Words, false);
-                            writer.write("dog eye cat");
+                            writer.write("dog eye cat plum box cake rope hill pen flow bear tray knee dig" +
+                                    " bike red blue zoom tap");
                             writer.close();
                             complete = true;
                             System.exit(0);

@@ -143,9 +143,9 @@ public class IntermediateLevel {
 
                         String answer = input.next();
 
-                        if (Objects.equals(answer, "Y")) {
+                        if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                             IntermediateLevel.intermediateLevel();
-                        }else if (Objects.equals(answer, "N")) {
+                        }else if (Objects.equals(answer, "N") || (Objects.equals(answer, "n"))) {
                             writer = new FileWriter(level2Words, false);
                             writer.write("truck juice water");
                             writer.close();
@@ -163,9 +163,9 @@ public class IntermediateLevel {
                         System.out.println("Play again?\nY: to Replay\nN: to EXIT\n");
                         Scanner i = new Scanner(System.in);
                         String answer = i.next();
-                        if (Objects.equals(answer, "Y")) {
+                        if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                             IntermediateLevel.intermediateLevel();
-                        }else if (Objects.equals(answer, "N")) {
+                        }else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                             writer = new FileWriter(level2Words, false);
                             writer.write("truck juice water");
                             writer.close();
