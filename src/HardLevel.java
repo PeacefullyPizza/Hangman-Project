@@ -78,6 +78,8 @@ public class HardLevel {
             String character;
 
             while (input.hasNext()) {
+
+
                 character = input.next().toLowerCase(Locale.ROOT).substring(0, 1);
 
                 input.nextLine();

@@ -109,6 +109,9 @@ public class BeginnerLevel {
                         int index = word.indexOf(character);
                         letters_copy[index] = character;
                         guessed_letters.add(character);
+
+                        // Going through the word and checking to see if the user input equals an of the letters in the
+                        // word and if not, replacing it with a blank space.
                         for (int i = 0; i < letters.length; i++) {
 
                             if (letters[i].equalsIgnoreCase(character)) {
@@ -123,9 +126,13 @@ public class BeginnerLevel {
                             }
 
                         }
+
+                        // Printing out the letters the user got right so far.
                         for (int i = 0; i < letters.length; i++) {
                             System.out.print(letters_copy[i] + " ");
                         }
+
+                        //Printing out the guessed letters for the user.
                         System.out.print("\nGuessed Letters: ");
                         for (int i = 0; i < guessed_letters.size(); i++) {
                             System.out.print(guessed_letters.get(i) + " ");
@@ -144,11 +151,13 @@ public class BeginnerLevel {
                             System.out.print(letters_copy[i] + " ");
 
                         }
+                        // Printing out the guessed letters to the user.
                         System.out.print("\nGuessed Letters: ");
                         for (int i = 0; i < guessed_letters.size(); i++) {
                             System.out.print(guessed_letters.get(i) + " ");
                         }
                     }
+                    // Adding the correct letters to a separate string until its the same length as the selected word.
                     String completeWord = "";
                     for (int i = 0; i < letters_copy.length; i++) {
                         if (letters_copy[i] != "_ ") {
@@ -156,13 +165,18 @@ public class BeginnerLevel {
                         }
                     }
 
+                    // Checking that the completed word is the same length as the selected word.
                     if (completeWord.length() == word.length()) {
                         counter = 0;
+
+                        // Our WINNER message.
                         System.out.println("\n");
                         System.out.println("================");
                         System.out.println("|   *WINNER*   |");
                         System.out.println("================");
                         System.out.println("You win! The word was " + "'"+word+"'\n");
+
+                        // Our winning sound effect
                         Sounds.winnerSound();
                         System.out.println("Play again?\nY: to Replay\nN: to EXIT\n");
 
@@ -178,19 +192,29 @@ public class BeginnerLevel {
                             System.exit(0);
                         }
                     }
+                    // If the counter reaches MAX GUESSES then print game over message and ask for user input.
                     if (counter == 7) {
+                        // Setting the counter back to zero so you get the correct ASCII art starting over.
                         counter = 0;
+                        // Our GAME OVER message
                         System.out.println("\n");
                         System.out.println("===================");
                         System.out.println("|   *GAME OVER*   |");
                         System.out.println("===================");
+
+                        // Losing sound effect (hope you enjoy!)
                         Sounds.losingSound();
+
+                        // Ask the user if they want to play again.
                         System.out.println("Play again?\nY: to Replay\nN: to EXIT\n");
                         Scanner i = new Scanner(System.in);
-
                         String answer = i.next();
+
+                        // If the user wants to play again, start the level over.
                         if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                             BeginnerLevel.beginnerLevel();
+
+                        // If the user doesn't want to play again, rewrite the words to the file, and terminate program.
                         }else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                             writer = new FileWriter(level1Words, false);
                             writer.write("dog eye cat plum box cake rope hill pen flow bear tray knee dig" +
@@ -202,6 +226,8 @@ public class BeginnerLevel {
                     }
                 }
             }
+            // If the user runs out of words to use, write all the words back to the file, reset counter, and send them
+            // back to the menu to choose another option.
             writer = new FileWriter(level1Words, false);
             writer.write("dog eye cat plum box cake rope hill pen flow bear tray knee dig\" +\n" +
                     "                                    \" bike red blue zoom tap");
