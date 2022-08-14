@@ -152,6 +152,7 @@ public class HardLevel {
                     System.out.println("Play again?\n Y for yes, N for no\n");
                     String answer = input.next();
                     if (Objects.equals(answer, "Y")) {
+
                         HardLevel.hardLevel();
                     }
                     if (Objects.equals(answer, "N")) {
@@ -170,6 +171,7 @@ public class HardLevel {
 
                     String answer = i.next();
                     if (Objects.equals(answer, "Y")) {
+
                         HardLevel.hardLevel();
                     }
                     if (Objects.equals(answer, "N")) {

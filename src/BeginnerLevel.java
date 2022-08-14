@@ -63,7 +63,7 @@ public class BeginnerLevel {
                 //writer.write(Arrays.toString(words));
 
                 // Close the file writer.
-                //writer.close();
+                writer.close();
 
 
                 for (int i = 0; i < letters.length; i++) {
@@ -151,6 +151,7 @@ public class BeginnerLevel {
                         System.out.println("Play again?\n Y for yes, N for no\n");
                         String answer = input.next();
                         if (Objects.equals(answer, "Y")) {
+
                             BeginnerLevel.beginnerLevel();
                         }
                         else if (Objects.equals(answer, "N")) {
@@ -169,6 +170,7 @@ public class BeginnerLevel {
 
                         String answer = i.next();
                         if (Objects.equals(answer, "Y")) {
+
                             BeginnerLevel.beginnerLevel();
                         }
                         if (Objects.equals(answer, "N")) {

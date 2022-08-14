@@ -57,6 +57,7 @@ public class IntermediateLevel {
                 for (String item : list2) {
                     writer.write(item+ " ");
                 }
+                writer.close();
 
                 for (int i = 0; i < letters2.length; i++) {
                     //letters[i] = "_ ";
@@ -144,6 +145,7 @@ public class IntermediateLevel {
                         String answer = input.next();
 
                         if (Objects.equals(answer, "Y")) {
+
                             IntermediateLevel.intermediateLevel();
                         }
                         if (Objects.equals(answer, "N")) {
@@ -162,6 +164,7 @@ public class IntermediateLevel {
 
                         String answer = i.next();
                         if (Objects.equals(answer, "Y")) {
+
                             IntermediateLevel.intermediateLevel();
                         }
                         if (Objects.equals(answer, "N")) {
