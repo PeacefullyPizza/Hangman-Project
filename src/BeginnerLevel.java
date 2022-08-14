@@ -66,9 +66,6 @@ public class BeginnerLevel {
                 list.remove(word);
                 words = list.toArray(new String[0]);
 
-                // Two print statements for testing purposes that should be commented out for final version.
-                System.out.println(Arrays.toString(words));
-                System.out.println(list);
 
                 // Writing the modified list back to the text file
                 writer = new FileWriter(level1Words, false);
@@ -124,7 +121,6 @@ public class BeginnerLevel {
                                 //System.out.print("_ ");
                                 continue;
                             }
-
                         }
 
                         // Printing out the letters the user got right so far.
@@ -186,7 +182,7 @@ public class BeginnerLevel {
                         } else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                             writer = new FileWriter(level1Words, false);
                             writer.write("dog eye cat plum box cake rope hill pen flow bear tray knee dig bike " +
-                                    "red blue zoom tap");
+                                    "red blue zoom tap zen");
                             writer.close();
                             complete = true;
                             System.exit(0);
@@ -201,6 +197,7 @@ public class BeginnerLevel {
                         System.out.println("===================");
                         System.out.println("|   *GAME OVER*   |");
                         System.out.println("===================");
+                        System.out.println("You win! The word was " + "'"+word+"'\n");
 
                         // Losing sound effect (hope you enjoy!)
                         Sounds.losingSound();
@@ -213,12 +210,11 @@ public class BeginnerLevel {
                         // If the user wants to play again, start the level over.
                         if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                             BeginnerLevel.beginnerLevel();
-
                         // If the user doesn't want to play again, rewrite the words to the file, and terminate program.
                         }else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                             writer = new FileWriter(level1Words, false);
                             writer.write("dog eye cat plum box cake rope hill pen flow bear tray knee dig" +
-                                    " bike red blue zoom tap");
+                                    " bike red blue zoom tap zen");
                             writer.close();
                             complete = true;
                             System.exit(0);
@@ -229,10 +225,10 @@ public class BeginnerLevel {
             // If the user runs out of words to use, write all the words back to the file, reset counter, and send them
             // back to the menu to choose another option.
             writer = new FileWriter(level1Words, false);
-            writer.write("dog eye cat plum box cake rope hill pen flow bear tray knee dig\" +\n" +
-                    "                                    \" bike red blue zoom tap");
+            writer.write("dog eye cat plum box cake rope hill pen flow bear tray " +
+                    "knee dig bike red blue zoom tap zen");
             writer.close();
-            System.out.println("All words have been used!\n*RELOADING WORDS*");
+            System.out.println("*INITIALIZATION*\n*RELOADING WORDS*");
             //complete = true;
             //System.exit(0);
             counter = 0;

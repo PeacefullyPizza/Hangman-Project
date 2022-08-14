@@ -118,56 +118,74 @@ public class IntermediateLevel {
                         for (int i = 0; i < letters2.length; i++) {
                             //letters[i] = "_ ";
                             System.out.print(letters_copy2[i] + " ");
-
                         }
+                        // Printing out the guessed letters to the user.
                         System.out.print("\nGuessed Letters: ");
                         for (int i = 0; i < guessed_letters.size(); i++) {
                             System.out.print(guessed_letters.get(i) + " ");
                         }
-
                     }
+                    // Adding the correct letters to a separate string until its the same length as the selected word.
                     String completeWord = "";
                     for (int i = 0; i < letters_copy2.length; i++) {
                         if (letters_copy2[i] != "_ ") {
                             completeWord += letters_copy2[i];
                         }
                     }
+                    // Checking that the completed word is the same length as the selected word.
                     if (completeWord.length() == word2.length()) {
+                        counter = 0;
+
+                        // Our WINNER message.
                         System.out.println("\n");
                         System.out.println("================");
                         System.out.println("|   *WINNER*   |");
                         System.out.println("================");
                         System.out.println("You win! The word was " + "'"+word2+"'\n");
+
+                        // Our winning sound effect
                         Sounds.winnerSound();
                         System.out.println("Play again?\nY: to Replay\nN: to EXIT\n");
 
                         String answer = input.next();
-
                         if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                             IntermediateLevel.intermediateLevel();
                         }else if (Objects.equals(answer, "N") || (Objects.equals(answer, "n"))) {
                             writer = new FileWriter(level2Words, false);
-                            writer.write("truck juice water");
+                            writer.write("truck juice water yellow fuzzy zombie jumbo across coffee global number" +
+                                    " permit remote unique wonder click friend level radio steel");
                             writer.close();
                             complete = true;
                             System.exit(0);
                         }
                     }
+                    // If the counter reaches MAX GUESSES then print game over message and ask for user input.
                     if (counter == 7) {
+                        // Setting the counter back to zero so you get the correct ASCII art starting over.
                         counter = 0;
+                        // Our GAME OVER message
                         System.out.println("\n");
                         System.out.println("===================");
                         System.out.println("|   *GAME OVER*   |");
                         System.out.println("===================");
+
+                        // Losing sound effect (hope you enjoy!)
                         Sounds.losingSound();
+
+                        // Ask the user if they want to play again.
                         System.out.println("Play again?\nY: to Replay\nN: to EXIT\n");
                         Scanner i = new Scanner(System.in);
                         String answer = i.next();
+
+                        // If the user wants to play again, start the level over.
                         if (Objects.equals(answer, "Y") || Objects.equals(answer, "y")) {
                             IntermediateLevel.intermediateLevel();
+
+                            // If the user doesn't want to play again, rewrite the words to the file, and terminate program.
                         }else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                             writer = new FileWriter(level2Words, false);
-                            writer.write("truck juice water");
+                            writer.write("truck juice water yellow fuzzy zombie jumbo across coffee global " +
+                                    "number permit remote unique wonder click friend level radio steel");
                             writer.close();
                             complete = true;
                             System.exit(0);
@@ -175,10 +193,13 @@ public class IntermediateLevel {
                     }
                 }
             }
+            // If the user runs out of words to use, write all the words back to the file, reset counter, and send them
+            // back to the menu to choose another option.
             writer = new FileWriter(level2Words, false);
-            writer.write("truck juice water");
+            writer.write("truck juice water yellow fuzzy zombie jumbo across coffee global number permit remote " +
+                    "unique wonder click friend level radio steel");
             writer.close();
-            System.out.println("All words have been used!\n*RELOADING WORDS*");
+            System.out.println("*INITIALIZATION*\n*RELOADING WORDS*");
             //complete = true;
             counter = 0;
             GameMode.gameModeMenu();
