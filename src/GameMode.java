@@ -12,14 +12,16 @@ public class GameMode {
         System.out.println("██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║");
         System.out.println("╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
         System.out.println("     |==================================================|");
-        System.out.println("     |---------------------LEVELS-----------------------|");
+        System.out.println("     |----------------------LEVELS----------------------|");
         System.out.println("     |==================================================|");
-        System.out.println("     |                   Beginner: 1                    |");
-        System.out.println("     |                 Intermediate: 2                  |");
-        System.out.println("     |                     Hard: 3                      |");
-        System.out.println("     |                     EXIT: -1                     |");
+        System.out.println("     |                    *OPTIONS*                     |");
+        System.out.println("     |                    Beginner: 1                   |");
+        System.out.println("     |                  Intermediate: 2                 |");
+        System.out.println("     |                      Hard: 3                     |");
+        System.out.println("     |                  Information: 4                  |");
+        System.out.println("     |                      EXIT: -1                    |");
         System.out.println("     |==================================================|");
-        System.out.println("Please select a difficulty level:");
+
 // Determine the level the user selects
 
         Scanner levelSelection = new Scanner(System.in);
@@ -44,6 +46,10 @@ public class GameMode {
             else if (userSelection == 3) {
 
                 HardLevel.hardLevel();
+            }
+            else if (userSelection == 4) {
+
+                GameInformation.gameInformation();
             }
             // Terminates the program
             else if (userSelection == -1) {

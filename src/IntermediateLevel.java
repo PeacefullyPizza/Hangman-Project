@@ -24,13 +24,11 @@ public class IntermediateLevel {
         Scanner level2Reader = new Scanner(level2Words);
         String level2Data;
         while (!complete) {
-
-
             if (level2Reader.hasNextLine()) {
-                System.out.println("     |==================================================|");
-                System.out.println("     |------Intermediate Level Started! Good Luck!------|");
-                System.out.println("     |==================================================|");
-//                System.out.println("\nIntermediate Level Started! Good Luck!\n");
+                System.out.println("     |================================================|");
+                System.out.println("     |----------*Intermediate Level Started*----------|");
+                System.out.println("     |-------------------Good Luck--------------------|");
+                System.out.println("     |================================================|");
                 System.out.println("_____    ");
                 System.out.println("|        ");
                 System.out.println("|        ");
@@ -53,8 +51,8 @@ public class IntermediateLevel {
 
                 list2.remove(word2);
                 words2 = list2.toArray(new String[0]);
+                // print statements for testing purposes that should be commented out for final version.
                 System.out.println(Arrays.toString(words2));
-
 
                 writer = new FileWriter(level2Words, false);
                 for (String item : list2) {
@@ -74,17 +72,16 @@ public class IntermediateLevel {
                 System.out.print("Enter your guess: ");
                 String character;
 
-
-
                 while (input.hasNext()) {
 
                     character = input.next().toLowerCase(Locale.ROOT).substring(0, 1);
 
                     input.nextLine();
 
-
                     if (DataValidation.checkForLetter(word2, character)) {
-
+                        System.out.println("===================");
+                        System.out.println("|    *CORRECT*    |");
+                        System.out.println("===================");
                         HangmanArt.hangmanArt(counter);
                         int index = word2.indexOf(character);
                         letters_copy2[index] = character;
@@ -101,13 +98,11 @@ public class IntermediateLevel {
                                 //System.out.print("_ ");
                                 continue;
                             }
-
-
                         }
                         for (int i = 0; i < letters2.length; i++) {
                             System.out.print(letters_copy2[i] + " ");
                         }
-                        System.out.print("Guessed Letters: ");
+                        System.out.print("\nGuessed Letters: ");
                         for (int i = 0; i < guessed_letters.size(); i++) {
                             System.out.print(guessed_letters.get(i) + " ");
                         }
@@ -120,13 +115,12 @@ public class IntermediateLevel {
                         // getting hangman art based on counter value.
                         HangmanArt.hangmanArt(counter);
 
-
                         for (int i = 0; i < letters2.length; i++) {
                             //letters[i] = "_ ";
                             System.out.print(letters_copy2[i] + " ");
 
                         }
-                        System.out.print("Guessed Letters: ");
+                        System.out.print("\nGuessed Letters: ");
                         for (int i = 0; i < guessed_letters.size(); i++) {
                             System.out.print(guessed_letters.get(i) + " ");
                         }
@@ -137,22 +131,21 @@ public class IntermediateLevel {
                         if (letters_copy2[i] != "_ ") {
                             completeWord += letters_copy2[i];
                         }
-
-
                     }
                     if (completeWord.length() == word2.length()) {
-                        System.out.println("\n--------------");
-                        System.out.println("WINNER !!!!!!!");
+                        System.out.println("\n");
+                        System.out.println("================");
+                        System.out.println("|   *WINNER*   |");
+                        System.out.println("================");
+                        System.out.println("You win! The word was " + "'"+word2+"'\n");
                         Sounds.winnerSound();
-                        System.out.println("--------------");
-                        System.out.println("Play again?\n Y for yes, N for no\n");
+                        System.out.println("Play again?\n Y: to Replay\nN: to EXIT\n");
+
                         String answer = input.next();
 
                         if (Objects.equals(answer, "Y")) {
-
                             IntermediateLevel.intermediateLevel();
-                        }
-                        if (Objects.equals(answer, "N")) {
+                        }else if (Objects.equals(answer, "N")) {
                             writer = new FileWriter(level2Words, false);
                             writer.write("truck juice water");
                             writer.close();
@@ -162,18 +155,17 @@ public class IntermediateLevel {
                     }
                     if (counter == 7) {
                         counter = 0;
-                        System.out.println("GAME OVER");
+                        System.out.println("\n");
+                        System.out.println("===================");
+                        System.out.println("|   *GAME OVER*   |");
+                        System.out.println("===================");
                         Sounds.losingSound();
-                        System.out.println("Play again?\n Y for yes, N for no\n");
+                        System.out.println("Play again?\n Y: to Replay\nN: to EXIT\n");
                         Scanner i = new Scanner(System.in);
-
                         String answer = i.next();
                         if (Objects.equals(answer, "Y")) {
-
                             IntermediateLevel.intermediateLevel();
-                        }
-                        if (Objects.equals(answer, "N")) {
-
+                        }else if (Objects.equals(answer, "N")) {
                             writer = new FileWriter(level2Words, false);
                             writer.write("truck juice water");
                             writer.close();
@@ -186,7 +178,7 @@ public class IntermediateLevel {
             writer = new FileWriter(level2Words, false);
             writer.write("truck juice water");
             writer.close();
-            System.out.println("You ran out of words!");
+            System.out.println("All words have been used!\n*RELOADING WORDS*");
             //complete = true;
             counter = 0;
             GameMode.gameModeMenu();

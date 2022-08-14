@@ -22,14 +22,11 @@ public class HardLevel {
         String level3Data;
 
         while (!complete) {
-
-
-
-
         if (level3Reader.hasNextLine()) {
-            System.out.println("     |==================================================|");
-            System.out.println("     |------Hard Level Started! Good Luck!------|");
-            System.out.println("     |==================================================|");
+            System.out.println("     |=============================================|");
+            System.out.println("     |------------*Hard Level Started*-------------|");
+            System.out.println("     |-----------------Good Luck-------------------|");
+            System.out.println("     |=============================================|");
 //                System.out.println("\nIntermediate Level Started! Good Luck!\n");
             System.out.println("_____    ");
             System.out.println("|        ");
@@ -50,12 +47,12 @@ public class HardLevel {
             letters3 = word3.split("");
             letters_copy3 = letters3.clone();
 
-
-
             //word3 = words3[rand.nextInt(3)];
 
             list3.remove(word3);
             words3 = list3.toArray(new String[0]);
+
+            // Two print statements for testing purposes that should be commented out for final version.
             System.out.println(Arrays.toString(words3));
             System.out.println(list3);
 
@@ -80,17 +77,15 @@ public class HardLevel {
             System.out.print("Enter your guess: ");
             String character;
 
-
-
             while (input.hasNext()) {
                 character = input.next().toLowerCase(Locale.ROOT).substring(0, 1);
 
                 input.nextLine();
 
-
-
                 if (DataValidation.checkForLetter(word3, character)) {
-
+                    System.out.println("===================");
+                    System.out.println("|    *CORRECT*    |");
+                    System.out.println("===================");
                     HangmanArt.hangmanArt(counter);
                     int index = word3.indexOf(character);
                     letters_copy3[index] = character;
@@ -107,13 +102,11 @@ public class HardLevel {
                             //System.out.print("_ ");
                             continue;
                         }
-
-
                     }
                     for (int i = 0; i < letters3.length; i++) {
                         System.out.print(letters_copy3[i] + " ");
                     }
-                    System.out.print("Guessed Letters: ");
+                    System.out.print("\nGuessed Letters: ");
                     for (int i = 0; i < guessed_letters.size(); i++) {
                         System.out.print(guessed_letters.get(i) + " ");
                     }
@@ -126,16 +119,14 @@ public class HardLevel {
                     // getting hangman art based on counter value.
                     HangmanArt.hangmanArt(counter);
 
-
                     for (int i = 0; i < letters3.length; i++) {
                         //letters[i] = "_ ";
                         System.out.print(letters_copy3[i] + " ");
                     }
-                    System.out.print("Guessed Letters: ");
+                    System.out.print("\nGuessed Letters: ");
                     for (int i = 0; i < guessed_letters.size(); i++) {
                         System.out.print(guessed_letters.get(i) + " ");
                     }
-
                 }
                 String completeWord = "";
                 for (int i = 0; i < letters_copy3.length; i++) {
@@ -143,22 +134,22 @@ public class HardLevel {
                     if (letters_copy3[i] != "_ ") {
                         completeWord += letters_copy3[i];
                     }
-
-
                 }
                 if (completeWord.length() == word3.length()) {
                     counter = 0;
-                    System.out.println("\n--------------");
-                    System.out.println("WINNER !!!!!!!");
+                    System.out.println("\n");
+                    System.out.println("================");
+                    System.out.println("|   *WINNER*   |");
+                    System.out.println("================");
+                    System.out.println("You win! The word was " + "'"+word3+"'\n");
+
                     Sounds.winnerSound();
-                    System.out.println("--------------");
-                    System.out.println("Play again?\n Y for yes, N for no\n");
+                    System.out.println("Play again?\n Y: to Replay\nN: to EXIT\n");
+
                     String answer = input.next();
                     if (Objects.equals(answer, "Y")) {
-
                         HardLevel.hardLevel();
-                    }
-                    if (Objects.equals(answer, "N")) {
+                    }else if (Objects.equals(answer, "N")) {
                         writer = new FileWriter(level3Words, false);
                         writer.write("computer controller airplanes");
                         writer.close();
@@ -168,34 +159,36 @@ public class HardLevel {
                 }
                 if (counter == 7) {
                     counter = 0;
-                    System.out.println("GAME OVER");
+                    System.out.println("\n");
+                    System.out.println("===================");
+                    System.out.println("|   *GAME OVER*   |");
+                    System.out.println("===================");
                     Sounds.losingSound();
-                    System.out.println("Play again?\n Y for yes, N for no\n");
+                    System.out.println("Play again?\n Y: to Replay\nN: to EXIT\n");
+
                     Scanner i = new Scanner(System.in);
 
                     String answer = i.next();
                     if (Objects.equals(answer, "Y")) {
                         HardLevel.hardLevel();
-                    }
-                    if (Objects.equals(answer, "N")) {
-
+                    }else if (Objects.equals(answer, "N")) {
                         writer = new FileWriter(level3Words, false);
                         writer.write("computer controller airplanes");
                         writer.close();
                         complete = true;
                         System.exit(0);
                     }
-
-
             }
         }
     }
             writer = new FileWriter(level3Words, false);
             writer.write("computer controller airplane");
             writer.close();
-            System.out.println("You ran out of words!");
+            System.out.println("All words have been used!\n*RELOADING WORDS*");
             counter = 0;
             //complete = true;
             GameMode.gameModeMenu();
-}}}
+        }
+    }
+}
 

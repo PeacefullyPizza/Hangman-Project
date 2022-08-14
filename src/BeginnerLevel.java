@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -15,24 +14,22 @@ public class BeginnerLevel {
     // Beginner Level
     public static void beginnerLevel() throws IOException {
 
-            String word;
-            String[] letters;
-            String[] letters_copy;
-            ArrayList<String> guessed_letters = new ArrayList<String>();  // Array List for guessed letter.
-            Random rand = new Random();
-            File level1Words = new File("Level1Words.txt");
-            Scanner level1Reader = new Scanner(level1Words);
-            String level1Data;
-
+        String word;
+        String[] letters;
+        String[] letters_copy;
+        ArrayList<String> guessed_letters = new ArrayList<>();  // Array List for guessed letter.
+        Random rand = new Random();
+        File level1Words = new File("Level1Words.txt");
+        Scanner level1Reader = new Scanner(level1Words);
+        String level1Data;
 
         while (!complete) {
-
-
             if (level1Reader.hasNextLine()) {
                 //Beginner Level banner
-                System.out.println("     |==================================================|");
-                System.out.println("     |------Beginner Level Started! Good Luck!------|");
-                System.out.println("     |==================================================|");
+                System.out.println("     |============================================|");
+                System.out.println("     |----------*Beginner Level Started*----------|");
+                System.out.println("     |------------------Good Luck-----------------|");
+                System.out.println("     |============================================|");
                 // First empty Hangman art.
                 System.out.println("_____    ");
                 System.out.println("|        ");
@@ -41,12 +38,14 @@ public class BeginnerLevel {
                 System.out.println("|        ");
                 System.out.println("|_______|");
                 System.out.println("|_______|");
+                System.out.println("Word length:");
 
                 // getting data from the scanner
                 level1Data = level1Reader.nextLine();
 
-                // I dont believe this is needed but unsure at the moment.
-                if (level1Data == ""){
+                // I don't believe this is needed but unsure at the moment.
+                // Was also thinking the same thing -do
+                if (level1Data == "") {
                     level1Data = "dog eye cat";
                 }
 
@@ -54,7 +53,7 @@ public class BeginnerLevel {
                 words = level1Data.split("\\s+");
 
                 //Storing the words in an array list
-                List<String> list = new ArrayList<String>(Arrays.asList(words));
+                List<String> list = new ArrayList<>(Arrays.asList(words));
 
                 // Once the words are in the list, THEN get the word randomly. Random number is based on size of list.
                 word = list.get(rand.nextInt(list.size()));
@@ -74,7 +73,7 @@ public class BeginnerLevel {
                 // Writing the modified list back to the text file
                 writer = new FileWriter(level1Words, false);
                 for (String item : list) {
-                    writer.write(item+ " ");
+                    writer.write(item + " ");
                 }
 
                 // Close the file writer.
@@ -82,28 +81,30 @@ public class BeginnerLevel {
 
                 //print out the randomly chosen word in blank spaces for the user
                 for (int i = 0; i < letters.length; i++) {
+
                     System.out.print("_ ");
                     letters_copy[i] = "_ ";
                 }
 
                 // Creating scanner
                 Scanner input = new Scanner(System.in);
-                System.out.print("\n");
-                System.out.print("Enter your guess: ");
+                System.out.print("\nEnter your guess: ");
                 String character;
 
                 // Execute the rest of program is there is a letter entered.
                 while (input.hasNext()) {
 
                     // Storing the user's input in a variable, making lowercase, and making sure any words
-                    // that may have been enetered are now only the first letter in that word.
+                    // that may have been entered are now only the first letter in that word.
                     character = input.next().toLowerCase(Locale.ROOT).substring(0, 1);
 
                     input.nextLine();
 
                     // If the users input is in the word, execute code below.
                     if (DataValidation.checkForLetter(word, character)) {
-
+                        System.out.println("===================");
+                        System.out.println("|    *CORRECT*    |");
+                        System.out.println("===================");
                         HangmanArt.hangmanArt(counter);
                         int index = word.indexOf(character);
                         letters_copy[index] = character;
@@ -121,17 +122,16 @@ public class BeginnerLevel {
                                 continue;
                             }
 
-
                         }
                         for (int i = 0; i < letters.length; i++) {
                             System.out.print(letters_copy[i] + " ");
                         }
-                        System.out.print("Guessed Letters: ");
+                        System.out.print("\nGuessed Letters: ");
                         for (int i = 0; i < guessed_letters.size(); i++) {
                             System.out.print(guessed_letters.get(i) + " ");
                         }
                     } else {
-                        //add letter to ArrayList of guesseed letters
+                        //add letter to ArrayList of guessed letters
                         guessed_letters.add(character);
 
                         counter++; // increment counter
@@ -139,39 +139,37 @@ public class BeginnerLevel {
                         // getting hangman art based on counter value.
                         HangmanArt.hangmanArt(counter);
 
-
                         for (int i = 0; i < letters.length; i++) {
-                        //letters[i] = "_ ";
+                            //letters[i] = "_ ";
                             System.out.print(letters_copy[i] + " ");
 
+                        }
+                        System.out.print("\nGuessed Letters: ");
+                        for (int i = 0; i < guessed_letters.size(); i++) {
+                            System.out.print(guessed_letters.get(i) + " ");
+                        }
                     }
-                    System.out.print("Guessed Letters: ");
-                    for (int i = 0; i < guessed_letters.size(); i++) {
-                        System.out.print(guessed_letters.get(i) + " ");
-                    }
-
-                }
                     String completeWord = "";
                     for (int i = 0; i < letters_copy.length; i++) {
                         if (letters_copy[i] != "_ ") {
                             completeWord += letters_copy[i];
                         }
-
-
                     }
 
                     if (completeWord.length() == word.length()) {
                         counter = 0;
-                        System.out.println("\n--------------");
-                        System.out.println("WINNER !!!!!!!");
+                        System.out.println("\n");
+                        System.out.println("================");
+                        System.out.println("|   *WINNER*   |");
+                        System.out.println("================");
+                        System.out.println("You win! The word was " + "'"+word+"'\n");
                         Sounds.winnerSound();
-                        System.out.println("--------------");
-                        System.out.println("Play again?\n Y for yes, N for no\n");
+                        System.out.println("Play again?\n Y: to Replay\nN: to EXIT\n");
+
                         String answer = input.next();
                         if (Objects.equals(answer, "Y")) {
                             BeginnerLevel.beginnerLevel();
-                        }
-                        else if (Objects.equals(answer, "N")) {
+                        } else if (Objects.equals(answer, "N")) {
                             writer = new FileWriter(level1Words, false);
                             writer.write("dog eye cat");
                             writer.close();
@@ -181,16 +179,18 @@ public class BeginnerLevel {
                     }
                     if (counter == 7) {
                         counter = 0;
-                        System.out.println("GAME OVER");
+                        System.out.println("\n");
+                        System.out.println("===================");
+                        System.out.println("|   *GAME OVER*   |");
+                        System.out.println("===================");
                         Sounds.losingSound();
-                        System.out.println("Play again?\n Y for yes, N for no\n");
+                        System.out.println("Play again?\n Y: to Replay\nN: to EXIT\n");
                         Scanner i = new Scanner(System.in);
 
                         String answer = i.next();
                         if (Objects.equals(answer, "Y")) {
                             BeginnerLevel.beginnerLevel();
-                        }
-                        if (Objects.equals(answer, "N")) {
+                        }else if (Objects.equals(answer, "N")) {
                             writer = new FileWriter(level1Words, false);
                             writer.write("dog eye cat");
                             writer.close();
@@ -199,12 +199,11 @@ public class BeginnerLevel {
                         }
                     }
                 }
-
             }
             writer = new FileWriter(level1Words, false);
             writer.write("dog eye cat");
             writer.close();
-            System.out.println("You ran out of words!");
+            System.out.println("All words have been used!\n*RELOADING WORDS*");
             //complete = true;
             //System.exit(0);
             counter = 0;

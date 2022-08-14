@@ -3,5 +3,4 @@ public class DataValidation {
         String[] tokenized_word = word.split("");
         return word.contains(letter);
     }
-
 }
