@@ -25,19 +25,20 @@ public class BeginnerLevel {
 
 
 
-            System.out.println("     |==================================================|");
-            System.out.println("     |------Beginner Level Started! Good Luck!------|");
-            System.out.println("     |==================================================|");
-//                System.out.println("\nIntermediate Level Started! Good Luck!\n");
-            System.out.println("_____    ");
-            System.out.println("|        ");
-            System.out.println("|        ");
-            System.out.println("|        ");
-            System.out.println("|        ");
-            System.out.println("|_______|");
-            System.out.println("|_______|");
+
 
             if (level1Reader.hasNextLine()) {
+                System.out.println("     |==================================================|");
+                System.out.println("     |------Beginner Level Started! Good Luck!------|");
+                System.out.println("     |==================================================|");
+//                System.out.println("\nIntermediate Level Started! Good Luck!\n");
+                System.out.println("_____    ");
+                System.out.println("|        ");
+                System.out.println("|        ");
+                System.out.println("|        ");
+                System.out.println("|        ");
+                System.out.println("|_______|");
+                System.out.println("|_______|");
 
                 level1Data = level1Reader.nextLine();
                 if (level1Data == ""){
@@ -158,7 +159,6 @@ public class BeginnerLevel {
                         System.out.println("Play again?\n Y for yes, N for no\n");
                         String answer = input.next();
                         if (Objects.equals(answer, "Y")) {
-
                             BeginnerLevel.beginnerLevel();
                         }
                         else if (Objects.equals(answer, "N")) {
@@ -177,7 +177,6 @@ public class BeginnerLevel {
 
                         String answer = i.next();
                         if (Objects.equals(answer, "Y")) {
-
                             BeginnerLevel.beginnerLevel();
                         }
                         if (Objects.equals(answer, "N")) {

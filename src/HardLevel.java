@@ -23,6 +23,9 @@ public class HardLevel {
         while (!complete) {
 
             int counter = 0;
+
+
+        if (level3Reader.hasNextLine()) {
             System.out.println("     |==================================================|");
             System.out.println("     |------Hard Level Started! Good Luck!------|");
             System.out.println("     |==================================================|");
@@ -34,8 +37,6 @@ public class HardLevel {
             System.out.println("|        ");
             System.out.println("|_______|");
             System.out.println("|_______|");
-
-        if (level3Reader.hasNextLine()) {
 
             level3Data = level3Reader.nextLine();
             // Selecting random word from Level1Words.txt
@@ -172,7 +173,6 @@ public class HardLevel {
 
                     String answer = i.next();
                     if (Objects.equals(answer, "Y")) {
-
                         HardLevel.hardLevel();
                     }
                     if (Objects.equals(answer, "N")) {
@@ -188,5 +188,11 @@ public class HardLevel {
             }
         }
     }
+            writer = new FileWriter(level3Words, false);
+            writer.write("computer controller airplane");
+            writer.close();
+            System.out.println("You ran out of words!");
+            complete = true;
+            System.exit(0);
 }}}
 

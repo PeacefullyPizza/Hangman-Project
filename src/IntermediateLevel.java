@@ -23,19 +23,20 @@ public class IntermediateLevel {
         Scanner level2Reader = new Scanner(level2Words);
         String level2Data;
         while (!complete) {
-            System.out.println("     |==================================================|");
-            System.out.println("     |------Beginner Level Started! Good Luck!------|");
-            System.out.println("     |==================================================|");
-//                System.out.println("\nIntermediate Level Started! Good Luck!\n");
-            System.out.println("_____    ");
-            System.out.println("|        ");
-            System.out.println("|        ");
-            System.out.println("|        ");
-            System.out.println("|        ");
-            System.out.println("|_______|");
-            System.out.println("|_______|");
+
 
             if (level2Reader.hasNextLine()) {
+                System.out.println("     |==================================================|");
+                System.out.println("     |------Intermediate Level Started! Good Luck!------|");
+                System.out.println("     |==================================================|");
+//                System.out.println("\nIntermediate Level Started! Good Luck!\n");
+                System.out.println("_____    ");
+                System.out.println("|        ");
+                System.out.println("|        ");
+                System.out.println("|        ");
+                System.out.println("|        ");
+                System.out.println("|_______|");
+                System.out.println("|_______|");
                 level2Data = level2Reader.nextLine();
 
                 // Selecting random word from Level1Words.txt
@@ -178,6 +179,12 @@ public class IntermediateLevel {
                     }
                 }
             }
+            writer = new FileWriter(level2Words, false);
+            writer.write("truck juice water");
+            writer.close();
+            System.out.println("You ran out of words!");
+            complete = true;
+            System.exit(0);
         }
     }
 }
