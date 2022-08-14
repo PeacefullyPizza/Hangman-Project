@@ -8,6 +8,7 @@ public class HardLevel {
    static String[] words3;
    static boolean complete = false;
    static FileWriter writer;
+   static int counter;
 
     public static void hardLevel() throws IOException {
         String word3;
@@ -22,7 +23,7 @@ public class HardLevel {
 
         while (!complete) {
 
-            int counter = 0;
+
 
 
         if (level3Reader.hasNextLine()) {
@@ -147,6 +148,7 @@ public class HardLevel {
 
                 }
                 if (completeWord.length() == word3.length()) {
+                    counter = 0;
                     System.out.println("\n--------------");
                     System.out.println("WINNER !!!!!!!");
                     Sounds.winnerSound();
@@ -166,6 +168,7 @@ public class HardLevel {
                     }
                 }
                 if (counter == 7) {
+                    counter = 0;
                     System.out.println("GAME OVER");
                     Sounds.losingSound();
                     System.out.println("Play again?\n Y for yes, N for no\n");
@@ -192,6 +195,7 @@ public class HardLevel {
             writer.write("computer controller airplane");
             writer.close();
             System.out.println("You ran out of words!");
+            counter = 0;
             //complete = true;
             GameMode.gameModeMenu();
 }}}

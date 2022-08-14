@@ -152,6 +152,7 @@ public class BeginnerLevel {
                     }
 
                     if (completeWord.length() == word.length()) {
+                        counter = 0;
                         System.out.println("\n--------------");
                         System.out.println("WINNER !!!!!!!");
                         Sounds.winnerSound();
@@ -170,6 +171,7 @@ public class BeginnerLevel {
                         }
                     }
                     if (counter == 7) {
+                        counter = 0;
                         System.out.println("GAME OVER");
                         Sounds.losingSound();
                         System.out.println("Play again?\n Y for yes, N for no\n");
@@ -196,6 +198,7 @@ public class BeginnerLevel {
             System.out.println("You ran out of words!");
             //complete = true;
             //System.exit(0);
+            counter = 0;
             GameMode.gameModeMenu();
         }
     }

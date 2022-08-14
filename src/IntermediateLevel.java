@@ -160,6 +160,7 @@ public class IntermediateLevel {
                         }
                     }
                     if (counter == 7) {
+                        counter = 0;
                         System.out.println("GAME OVER");
                         Sounds.losingSound();
                         System.out.println("Play again?\n Y for yes, N for no\n");
@@ -168,7 +169,7 @@ public class IntermediateLevel {
                         String answer = i.next();
                         if (Objects.equals(answer, "Y")) {
 
-                            HangmanGame.main(words2);
+                            IntermediateLevel.intermediateLevel();
                         }
                         if (Objects.equals(answer, "N")) {
 
@@ -186,6 +187,7 @@ public class IntermediateLevel {
             writer.close();
             System.out.println("You ran out of words!");
             //complete = true;
+            counter = 0;
             GameMode.gameModeMenu();
         }
     }
