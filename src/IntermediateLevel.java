@@ -41,6 +41,7 @@ public class IntermediateLevel {
 
             System.out.print("Enter your guess: ");
             String character;
+
             int counter = 0;
 
             while (input.hasNext()) {

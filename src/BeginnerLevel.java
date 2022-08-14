@@ -63,7 +63,7 @@ public class BeginnerLevel {
                 //writer.write(Arrays.toString(words));
 
                 // Close the file writer.
-                writer.close();
+                //writer.close();
 
 
                 for (int i = 0; i < letters.length; i++) {
@@ -77,6 +77,7 @@ public class BeginnerLevel {
 
                 System.out.print("Enter your guess: ");
                 String character;
+
 
                 while (input.hasNext()) {
                     character = input.next();
@@ -166,7 +167,7 @@ public class BeginnerLevel {
                         if (Objects.equals(answer, "Y")) {
                             BeginnerLevel.beginnerLevel();
                         }
-                        if (Objects.equals(answer, "N")) {
+                        else if (Objects.equals(answer, "N")) {
                             writer.write("dog eye cat");
                             writer.close();
                             complete = true;
