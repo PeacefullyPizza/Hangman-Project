@@ -122,7 +122,7 @@ public class IntermediateLevel {
 
                         for (int i = 0; i < letters2.length; i++) {
                             //letters[i] = "_ ";
-                            System.out.print("_ ");
+                            System.out.print(letters_copy2[i] + " ");
 
                         }
                         System.out.print("Guessed Letters: ");

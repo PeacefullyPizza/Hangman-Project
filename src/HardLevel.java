@@ -129,8 +129,7 @@ public class HardLevel {
 
                     for (int i = 0; i < letters3.length; i++) {
                         //letters[i] = "_ ";
-                        System.out.print("_ ");
-
+                        System.out.print(letters_copy3[i] + " ");
                     }
                     System.out.print("Guessed Letters: ");
                     for (int i = 0; i < guessed_letters.size(); i++) {
