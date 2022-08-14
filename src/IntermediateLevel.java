@@ -43,7 +43,7 @@ public class IntermediateLevel {
 
                 List<String> list2 = new ArrayList<String>(Arrays.asList(words2));
 
-                word2 = words2[rand.nextInt(3)];
+                word2 = words2[rand.nextInt(list2.size())];
 
                 letters2 = word2.split("");
                 letters_copy2 = letters2.clone();
@@ -93,7 +93,7 @@ public class IntermediateLevel {
                                 letters_copy2[i] = character;
                                 //System.out.print(letters_copy[i] + " ");
                             } else {
-                                //letters[i] = "_ ";
+                                letters2[i] = "_ ";
                                 //System.out.print("_ ");
                                 continue;
                             }

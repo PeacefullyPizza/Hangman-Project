@@ -21,6 +21,7 @@ public class HardLevel {
         String level3Data;
 
         while (!complete) {
+
             int counter = 0;
             System.out.println("     |==================================================|");
             System.out.println("     |------Hard Level Started! Good Luck!------|");

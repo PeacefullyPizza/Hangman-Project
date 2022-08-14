@@ -42,17 +42,7 @@ public class GameMode {
             }
             // Reading level 3 words from file
             else if (userSelection == 3) {
-                System.out.println("     |==================================================|");
-                System.out.println("     |----------Hard Level Started! Good Luck!----------|");
-                System.out.println("     |==================================================|");
-//                System.out.println("\nHard Level Started! Good Luck!\n");
-                System.out.println("_____    ");
-                System.out.println("|        ");
-                System.out.println("|        ");
-                System.out.println("|        ");
-                System.out.println("|        ");
-                System.out.println("|_______|");
-                System.out.println("|_______|");
+
                 HardLevel.hardLevel();
             }
             // Terminates the program

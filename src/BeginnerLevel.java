@@ -22,6 +22,9 @@ public class BeginnerLevel {
             Scanner level1Reader = new Scanner(level1Words);
             String level1Data;
         while (!complete) {
+
+
+
             System.out.println("     |==================================================|");
             System.out.println("     |------Beginner Level Started! Good Luck!------|");
             System.out.println("     |==================================================|");
@@ -35,7 +38,11 @@ public class BeginnerLevel {
             System.out.println("|_______|");
 
             if (level1Reader.hasNextLine()) {
+
                 level1Data = level1Reader.nextLine();
+                if (level1Data == ""){
+                    level1Data = "dog eye cat";
+                }
 
                 // Selecting random word from Level1Words.txt
                 words = level1Data.split("\\s+");
@@ -99,7 +106,7 @@ public class BeginnerLevel {
                                 letters_copy[i] = character;
                                 //System.out.print(letters_copy[i] + " ");
                             } else {
-                                //letters[i] = "_ ";
+                                letters[i] = "_ ";
                                 //System.out.print("_ ");
                                 continue;
                             }
@@ -184,6 +191,13 @@ public class BeginnerLevel {
                 }
 
             }
+            writer = new FileWriter(level1Words, false);
+            writer.write("dog eye cat");
+            writer.close();
+            System.out.println("You ran out of words!");
+            complete = true;
+            System.exit(0);
+
         }
     }
 }
