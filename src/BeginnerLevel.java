@@ -203,7 +203,8 @@ public class BeginnerLevel {
                 }
             }
             writer = new FileWriter(level1Words, false);
-            writer.write("dog eye cat");
+            writer.write("dog eye cat plum box cake rope hill pen flow bear tray knee dig\" +\n" +
+                    "                                    \" bike red blue zoom tap");
             writer.close();
             System.out.println("All words have been used!\n*RELOADING WORDS*");
             //complete = true;
