@@ -82,7 +82,7 @@ public class HardLevel {
 
 
             while (input.hasNext()) {
-                character = input.next();
+                character = input.next().toLowerCase(Locale.ROOT);
 
                 input.nextLine();
 
