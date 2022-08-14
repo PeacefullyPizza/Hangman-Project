@@ -24,8 +24,6 @@ public class HardLevel {
             letters_copy3 = letters3.clone();
 
 
-
-            word3 = words3[rand.nextInt(3)];
             List<String> list3 = new ArrayList<String>(Arrays.asList(words3));
             list3.remove(word3);
             words3 = list3.toArray(new String[0]);

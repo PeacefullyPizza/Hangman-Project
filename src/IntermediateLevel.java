@@ -25,7 +25,6 @@ public class IntermediateLevel {
             letters_copy2 = letters2.clone();
 
 
-            word2 = words2[rand.nextInt(3)];
             List<String> list2 = new ArrayList<String>(Arrays.asList(words2));
             list2.remove(word2);
             words2 = list2.toArray(new String[0]);

@@ -1,4 +1,8 @@
+import java.util.Objects;
+import java.util.Scanner;
+
 public class HangmanArt {
+    static boolean complete = false;
 
     // passing the number of guesses to the hangmanArt method
     public static void hangmanArt(int guesses) {
@@ -15,6 +19,16 @@ public class HangmanArt {
             System.out.println("\n----------");
             System.out.println("GAME OVER");
             Sounds.losingSound();
+            System.out.println("Play again?\n Y for yes, N for no\n");
+            Scanner input = new Scanner(System.in);
+
+            String answer = input.next();
+            if (Objects.equals(answer, "Y")) {
+                GameMode.gameModeMenu();
+            }
+            if (Objects.equals(answer, "N")) {
+                complete = true;
+            }
 
         } else if (guesses == 6) {
             System.out.println("_____    ");
@@ -24,7 +38,7 @@ public class HangmanArt {
             System.out.println("|  /     ");
             System.out.println("|_______|");
             System.out.println("|_______|");
-            System.out.println("\nCareful! You have 1 guess remaining!");
+            System.out.println("\nCareful! \nYou have 1 guess remaining!");
 
 
         } else if (guesses == 5) {

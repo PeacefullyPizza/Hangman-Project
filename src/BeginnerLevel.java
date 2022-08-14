@@ -5,7 +5,7 @@ import java.util.*;
 public class BeginnerLevel {
     static String[] words;
     static boolean complete = false;
-
+    static int counter;
     public static void beginnerLevel() throws FileNotFoundException {
         while (!complete) {
             String word;
@@ -25,7 +25,6 @@ public class BeginnerLevel {
                 letters = word.split("");
                 letters_copy = letters.clone();
 
-                //word = words[rand.nextInt(3)];
                 List<String> list = new ArrayList<String>(Arrays.asList(words));
                 list.remove(word);
                 words = list.toArray(new String[0]);
@@ -42,13 +41,11 @@ public class BeginnerLevel {
 
                 System.out.print("Enter your guess: ");
                 String character;
-                int counter = 0;
 
                 while (input.hasNext()) {
                     character = input.next();
 
                     input.nextLine();
-
 
 
                     if (DataValidation.checkForLetter(word, character)) {
@@ -90,16 +87,16 @@ public class BeginnerLevel {
 
 
                         for (int i = 0; i < letters.length; i++) {
-                            //letters[i] = "_ ";
-                            System.out.print("_ ");
-
-                        }
-                        System.out.print("Guessed Letters: ");
-                        for (int i = 0; i < guessed_letters.size(); i++) {
-                            System.out.print(guessed_letters.get(i) + " \n");
-                        }
+                        //letters[i] = "_ ";
+                        System.out.print("_ ");
 
                     }
+                    System.out.print("Guessed Letters: ");
+                    for (int i = 0; i < guessed_letters.size(); i++) {
+                        System.out.print(guessed_letters.get(i) + " ");
+                    }
+
+                }
                     String completeWord = "";
                     for (int i = 0; i < letters_copy.length; i++) {
                         if (letters_copy[i] != "_ ") {
