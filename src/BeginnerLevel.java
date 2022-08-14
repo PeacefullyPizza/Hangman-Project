@@ -43,12 +43,6 @@ public class BeginnerLevel {
                 // getting data from the scanner
                 level1Data = level1Reader.nextLine();
 
-                // I don't believe this is needed but unsure at the moment.
-                // Was also thinking the same thing -do
-                if (level1Data == "") {
-                    level1Data = "dog eye cat";
-                }
-
                 // Selecting random word from Level1Words.txt
                 words = level1Data.split("\\s+");
 

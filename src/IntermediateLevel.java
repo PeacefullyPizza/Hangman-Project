@@ -36,6 +36,9 @@ public class IntermediateLevel {
                 System.out.println("|        ");
                 System.out.println("|_______|");
                 System.out.println("|_______|");
+                System.out.println("Word length:");
+
+                // getting data from the scanner
                 level2Data = level2Reader.nextLine();
 
                 // Selecting random word from Level1Words.txt
@@ -51,8 +54,6 @@ public class IntermediateLevel {
 
                 list2.remove(word2);
                 words2 = list2.toArray(new String[0]);
-                // print statements for testing purposes that should be commented out for final version.
-                System.out.println(Arrays.toString(words2));
 
                 writer = new FileWriter(level2Words, false);
                 for (String item : list2) {
@@ -168,6 +169,7 @@ public class IntermediateLevel {
                         System.out.println("===================");
                         System.out.println("|   *GAME OVER*   |");
                         System.out.println("===================");
+                        System.out.println("You win! The word was " + "'"+word2+"'\n");
 
                         // Losing sound effect (hope you enjoy!)
                         Sounds.losingSound();
