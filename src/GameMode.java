@@ -37,17 +37,7 @@ public class GameMode {
             }
             // Reading level 2 words from file
             else if (userSelection == 2) {
-                System.out.println("     |==================================================|");
-                System.out.println("     |------Intermediate Level Started! Good Luck!------|");
-                System.out.println("     |==================================================|");
-//                System.out.println("\nIntermediate Level Started! Good Luck!\n");
-                System.out.println("_____    ");
-                System.out.println("|        ");
-                System.out.println("|        ");
-                System.out.println("|        ");
-                System.out.println("|        ");
-                System.out.println("|_______|");
-                System.out.println("|_______|");
+
                 IntermediateLevel.intermediateLevel();
             }
             // Reading level 3 words from file

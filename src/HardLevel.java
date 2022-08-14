@@ -152,10 +152,14 @@ public class HardLevel {
                     System.out.println("Play again?\n Y for yes, N for no\n");
                     String answer = input.next();
                     if (Objects.equals(answer, "Y")) {
-                        GameMode.gameModeMenu();
+                        HardLevel.hardLevel();
                     }
                     if (Objects.equals(answer, "N")) {
+                        writer = new FileWriter(level3Words, false);
+                        writer.write("computer controller airplanes");
+                        writer.close();
                         complete = true;
+                        System.exit(0);
                     }
                 }
                 if (counter == 7) {
@@ -170,7 +174,11 @@ public class HardLevel {
                     }
                     if (Objects.equals(answer, "N")) {
 
+                        writer = new FileWriter(level3Words, false);
+                        writer.write("computer controller airplanes");
+                        writer.close();
                         complete = true;
+                        System.exit(0);
                     }
 
 

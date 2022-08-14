@@ -142,21 +142,7 @@ public class BeginnerLevel {
 
 
                     }
-                    if (counter == 7) {
-                        System.out.println("GAME OVER");
-                        Sounds.losingSound();
-                        System.out.println("Play again?\n Y for yes, N for no\n");
-                        Scanner i = new Scanner(System.in);
 
-                        String answer = i.next();
-                        if (Objects.equals(answer, "Y")) {
-                            BeginnerLevel.beginnerLevel();
-                        }
-                        if (Objects.equals(answer, "N")) {
-
-                            complete = true;
-                        }
-                    }
                     if (completeWord.length() == word.length()) {
                         System.out.println("\n--------------");
                         System.out.println("WINNER !!!!!!!");
@@ -168,12 +154,33 @@ public class BeginnerLevel {
                             BeginnerLevel.beginnerLevel();
                         }
                         else if (Objects.equals(answer, "N")) {
+                            writer = new FileWriter(level1Words, false);
                             writer.write("dog eye cat");
                             writer.close();
                             complete = true;
+                            System.exit(0);
+                        }
+                    }
+                    if (counter == 7) {
+                        System.out.println("GAME OVER");
+                        Sounds.losingSound();
+                        System.out.println("Play again?\n Y for yes, N for no\n");
+                        Scanner i = new Scanner(System.in);
+
+                        String answer = i.next();
+                        if (Objects.equals(answer, "Y")) {
+                            BeginnerLevel.beginnerLevel();
+                        }
+                        if (Objects.equals(answer, "N")) {
+                            writer = new FileWriter(level1Words, false);
+                            writer.write("dog eye cat");
+                            writer.close();
+                            complete = true;
+                            System.exit(0);
                         }
                     }
                 }
+
             }
         }
     }
