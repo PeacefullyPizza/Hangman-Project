@@ -31,17 +31,7 @@ public class GameMode {
         try {
             // Reading level 1 words from file
             if (userSelection == 1) {
-                System.out.println("     |==================================================|");
-                System.out.println("     |--------Beginner Level Started! Good Luck!--------|");
-                System.out.println("     |==================================================|");
-//                System.out.println("\nBeginner Level Started! Good Luck!\n");
-                System.out.println("_____    ");
-                System.out.println("|        ");
-                System.out.println("|        ");
-                System.out.println("|        ");
-                System.out.println("|        ");
-                System.out.println("|_______|");
-                System.out.println("|_______|");
+
                 BeginnerLevel.beginnerLevel();
             }
             // Reading level 2 words from file

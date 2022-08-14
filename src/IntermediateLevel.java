@@ -41,13 +41,14 @@ public class IntermediateLevel {
 
             System.out.print("Enter your guess: ");
             String character;
+            int counter = 0;
 
             while (input.hasNext()) {
                 character = input.next();
 
                 input.nextLine();
 
-                int counter = 0;
+
 
                 if (DataValidation.checkForLetter(word2, character)) {
 
