@@ -17,18 +17,7 @@ public class HangmanArt {
             System.out.println("|_______|");
             System.out.println("|_______|");
             System.out.println("\n----------");
-            System.out.println("GAME OVER");
-            Sounds.losingSound();
-            System.out.println("Play again?\n Y for yes, N for no\n");
-            Scanner input = new Scanner(System.in);
 
-            String answer = input.next();
-            if (Objects.equals(answer, "Y")) {
-                GameMode.gameModeMenu();
-            }
-            if (Objects.equals(answer, "N")) {
-                complete = true;
-            }
 
         } else if (guesses == 6) {
             System.out.println("_____    ");

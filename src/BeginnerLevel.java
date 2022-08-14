@@ -41,20 +41,28 @@ public class BeginnerLevel {
                 words = level1Data.split("\\s+");
                 //word = words[rand.nextInt(3)];
 
-
+                //Storing the words in an array list
                 List<String> list = new ArrayList<String>(Arrays.asList(words));
+                // Once the words are in the list, THEN get the word randomly
                 word = list.get(rand.nextInt(list.size()));
+                // Split the word into list of specific letters
                 letters = word.split("");
                 letters_copy = letters.clone();
+                //Remove the word from the list
                 list.remove(word);
                 words = list.toArray(new String[0]);
+
                 System.out.println(Arrays.toString(words));
                 System.out.println(list);
+
+                // Writing the modified list back to the text file
                 writer = new FileWriter(level1Words, false);
                 for (String item : list) {
                     writer.write(item+ " ");
                 }
                 //writer.write(Arrays.toString(words));
+
+                // Close the file writer.
                 writer.close();
 
 
@@ -133,6 +141,21 @@ public class BeginnerLevel {
 
 
                     }
+                    if (counter == 7) {
+                        System.out.println("GAME OVER");
+                        Sounds.losingSound();
+                        System.out.println("Play again?\n Y for yes, N for no\n");
+                        Scanner i = new Scanner(System.in);
+
+                        String answer = i.next();
+                        if (Objects.equals(answer, "Y")) {
+                            BeginnerLevel.beginnerLevel();
+                        }
+                        if (Objects.equals(answer, "N")) {
+
+                            complete = true;
+                        }
+                    }
                     if (completeWord.length() == word.length()) {
                         System.out.println("\n--------------");
                         System.out.println("WINNER !!!!!!!");
@@ -144,6 +167,8 @@ public class BeginnerLevel {
                             BeginnerLevel.beginnerLevel();
                         }
                         if (Objects.equals(answer, "N")) {
+                            writer.write("dog eye cat");
+                            writer.close();
                             complete = true;
                         }
                     }
