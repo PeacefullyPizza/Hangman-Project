@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
@@ -23,47 +22,35 @@ public class GameMode {
         System.out.println("     |==================================================|");
 
 // Determine the level the user selects
-
         Scanner levelSelection = new Scanner(System.in);
         int userSelection = 0;
         if (levelSelection.hasNextInt()) {
             userSelection = levelSelection.nextInt();
             levelSelection.nextLine();
         }
-
         try {
             // Reading level 1 words from file
             if (userSelection == 1) {
-
                 BeginnerLevel.beginnerLevel();
             }
             // Reading level 2 words from file
             else if (userSelection == 2) {
-
                 IntermediateLevel.intermediateLevel();
             }
             // Reading level 3 words from file
             else if (userSelection == 3) {
-
                 HardLevel.hardLevel();
             }
+            // Information Page
             else if (userSelection == 4) {
-
                 GameInformation.gameInformation();
             }
             // Terminates the program
             else if (userSelection == -1) {
                 System.exit(0);
             }
-
-        } catch (FileNotFoundException e) {
-            System.err.println("ERROR: Sorry the file could not be found!");
-            e.printStackTrace();
-
-        } catch (InputMismatchException exception) {
-            System.err.println("Please enter a digit!");
-            exception.printStackTrace();
         } catch (IOException ioException) {
+            System.err.println("ERROR");
             ioException.printStackTrace();
         }
     }

@@ -139,7 +139,7 @@ public class IntermediateLevel {
                         System.out.println("================");
                         System.out.println("You win! The word was " + "'"+word2+"'\n");
                         Sounds.winnerSound();
-                        System.out.println("Play again?\n Y: to Replay\nN: to EXIT\n");
+                        System.out.println("Play again?\nY: to Replay\nN: to EXIT\n");
 
                         String answer = input.next();
 
@@ -160,7 +160,7 @@ public class IntermediateLevel {
                         System.out.println("|   *GAME OVER*   |");
                         System.out.println("===================");
                         Sounds.losingSound();
-                        System.out.println("Play again?\n Y: to Replay\nN: to EXIT\n");
+                        System.out.println("Play again?\nY: to Replay\nN: to EXIT\n");
                         Scanner i = new Scanner(System.in);
                         String answer = i.next();
                         if (Objects.equals(answer, "Y")) {
