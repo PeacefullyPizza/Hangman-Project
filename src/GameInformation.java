@@ -25,27 +25,28 @@ public class GameInformation {
 
 
         Scanner levelSelection = new Scanner(System.in);
+        boolean complete = false;
         int userSelection = 0;
-        if (levelSelection.hasNextInt()) {
-            userSelection = levelSelection.nextInt();
-            levelSelection.nextLine();
-        }
+        do {
+            try {
+                userSelection = levelSelection.nextInt();
+                levelSelection.nextLine();
+                complete = true;
 
+                // Reading level 1 words from file
+                if (userSelection == 1) {
 
-        try {
-            // Reading level 1 words from file
-            if (userSelection == 1) {
+                    GameMode.gameModeMenu();
+                }
+                // Reading level 2 words from file
+                else if (userSelection == -1) {
 
-                GameMode.gameModeMenu();
+                    System.exit(0);
+                }
+            } catch (InputMismatchException inputMismatchException) {
+                System.err.println("Please only a digit value!\n1 to return to Main Menu OR -1 to EXIT");
+                levelSelection.nextLine();
             }
-            // Reading level 2 words from file
-            else if (userSelection == -1) {
-
-                System.exit(0);
-            }
-        } catch (InputMismatchException inputMismatchException) {
-            inputMismatchException.printStackTrace();
-        }
-
+        }while (!complete);
     }
 }
