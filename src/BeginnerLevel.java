@@ -5,33 +5,35 @@ import java.io.IOException;
 import java.util.*;
 
 public class BeginnerLevel {
+
+    // initialization of static variables
     static String[] words;
     static boolean complete = false;
     static int counter;
     static FileWriter writer;
+
+    // Beginner Level
     public static void beginnerLevel() throws IOException {
 
             String word;
             String[] letters;
             String[] letters_copy;
-            ArrayList<String> guessed_letters = new ArrayList<String>();
-
-
+            ArrayList<String> guessed_letters = new ArrayList<String>();  // Array List for guessed letter.
             Random rand = new Random();
             File level1Words = new File("Level1Words.txt");
             Scanner level1Reader = new Scanner(level1Words);
             String level1Data;
+
+
         while (!complete) {
 
 
-
-
-
             if (level1Reader.hasNextLine()) {
+                //Beginner Level banner
                 System.out.println("     |==================================================|");
                 System.out.println("     |------Beginner Level Started! Good Luck!------|");
                 System.out.println("     |==================================================|");
-//                System.out.println("\nIntermediate Level Started! Good Luck!\n");
+                // First empty Hangman art.
                 System.out.println("_____    ");
                 System.out.println("|        ");
                 System.out.println("|        ");
@@ -40,26 +42,32 @@ public class BeginnerLevel {
                 System.out.println("|_______|");
                 System.out.println("|_______|");
 
+                // getting data from the scanner
                 level1Data = level1Reader.nextLine();
+
+                // I dont believe this is needed but unsure at the moment.
                 if (level1Data == ""){
                     level1Data = "dog eye cat";
                 }
 
                 // Selecting random word from Level1Words.txt
                 words = level1Data.split("\\s+");
-                //word = words[rand.nextInt(3)];
 
                 //Storing the words in an array list
                 List<String> list = new ArrayList<String>(Arrays.asList(words));
-                // Once the words are in the list, THEN get the word randomly
+
+                // Once the words are in the list, THEN get the word randomly. Random number is based on size of list.
                 word = list.get(rand.nextInt(list.size()));
+
                 // Split the word into list of specific letters
                 letters = word.split("");
                 letters_copy = letters.clone();
+
                 //Remove the word from the list
                 list.remove(word);
                 words = list.toArray(new String[0]);
 
+                // Two print statements for testing purposes that should be commented out for final version.
                 System.out.println(Arrays.toString(words));
                 System.out.println(list);
 
@@ -68,31 +76,32 @@ public class BeginnerLevel {
                 for (String item : list) {
                     writer.write(item+ " ");
                 }
-                //writer.write(Arrays.toString(words));
 
                 // Close the file writer.
                 writer.close();
 
-
+                //print out the randomly chosen word in blank spaces for the user
                 for (int i = 0; i < letters.length; i++) {
-                    //letters[i] = "_ ";
                     System.out.print("_ ");
                     letters_copy[i] = "_ ";
-                    //letters[i] = "_ ";
                 }
+
+                // Creating scanner
                 Scanner input = new Scanner(System.in);
                 System.out.print("\n");
-
                 System.out.print("Enter your guess: ");
                 String character;
 
-
+                // Execute the rest of program is there is a letter entered.
                 while (input.hasNext()) {
-                    character = input.next().toLowerCase(Locale.ROOT);
+
+                    // Storing the user's input in a variable, making lowercase, and making sure any words
+                    // that may have been enetered are now only the first letter in that word.
+                    character = input.next().toLowerCase(Locale.ROOT).substring(0, 1);
 
                     input.nextLine();
 
-
+                    // If the users input is in the word, execute code below.
                     if (DataValidation.checkForLetter(word, character)) {
 
                         HangmanArt.hangmanArt(counter);

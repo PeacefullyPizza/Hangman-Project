@@ -77,7 +77,8 @@ public class IntermediateLevel {
 
 
                 while (input.hasNext()) {
-                    character = input.next().toLowerCase(Locale.ROOT);
+
+                    character = input.next().toLowerCase(Locale.ROOT).substring(0, 1);
 
                     input.nextLine();
 
