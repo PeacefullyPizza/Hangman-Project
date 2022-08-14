@@ -194,9 +194,9 @@ public class BeginnerLevel {
             writer.write("dog eye cat");
             writer.close();
             System.out.println("You ran out of words!");
-            complete = true;
-            System.exit(0);
-
+            //complete = true;
+            //System.exit(0);
+            GameMode.gameModeMenu();
         }
     }
 }

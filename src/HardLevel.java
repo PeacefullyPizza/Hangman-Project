@@ -192,7 +192,7 @@ public class HardLevel {
             writer.write("computer controller airplane");
             writer.close();
             System.out.println("You ran out of words!");
-            complete = true;
-            System.exit(0);
+            //complete = true;
+            GameMode.gameModeMenu();
 }}}
 

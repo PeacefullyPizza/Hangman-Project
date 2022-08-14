@@ -9,6 +9,7 @@ public class IntermediateLevel {
     static String[] words2;
     static int counter;
     static FileWriter writer;
+    static String[] words_copy;
 
 
     public static void intermediateLevel() throws IOException {
@@ -45,6 +46,7 @@ public class IntermediateLevel {
                 List<String> list2 = new ArrayList<String>(Arrays.asList(words2));
 
                 word2 = words2[rand.nextInt(list2.size())];
+                words_copy = words2;
 
                 letters2 = word2.split("");
                 letters_copy2 = letters2.clone();
@@ -166,7 +168,7 @@ public class IntermediateLevel {
                         String answer = i.next();
                         if (Objects.equals(answer, "Y")) {
 
-                            IntermediateLevel.intermediateLevel();
+                            HangmanGame.main(words2);
                         }
                         if (Objects.equals(answer, "N")) {
 
@@ -183,8 +185,8 @@ public class IntermediateLevel {
             writer.write("truck juice water");
             writer.close();
             System.out.println("You ran out of words!");
-            complete = true;
-            System.exit(0);
+            //complete = true;
+            GameMode.gameModeMenu();
         }
     }
 }
