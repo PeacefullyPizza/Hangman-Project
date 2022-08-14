@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class GameMode {
@@ -76,6 +77,8 @@ public class GameMode {
         } catch (InputMismatchException exception) {
             System.err.println("Please enter a digit!");
             exception.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
     }
 }

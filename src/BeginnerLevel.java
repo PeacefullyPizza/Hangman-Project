@@ -1,12 +1,26 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class BeginnerLevel {
     static String[] words;
     static boolean complete = false;
     static int counter;
-    public static void beginnerLevel() throws FileNotFoundException {
+    static FileWriter writer;
+    public static void beginnerLevel() throws IOException {
+
+            String word;
+            String[] letters;
+            String[] letters_copy;
+            ArrayList<String> guessed_letters = new ArrayList<String>();
+
+
+            Random rand = new Random();
+            File level1Words = new File("Level1Words.txt");
+            Scanner level1Reader = new Scanner(level1Words);
+            String level1Data;
         while (!complete) {
             System.out.println("     |==================================================|");
             System.out.println("     |------Beginner Level Started! Good Luck!------|");
@@ -19,27 +33,30 @@ public class BeginnerLevel {
             System.out.println("|        ");
             System.out.println("|_______|");
             System.out.println("|_______|");
-            String word;
-            String[] letters;
-            String[] letters_copy;
-            ArrayList<String> guessed_letters = new ArrayList<String>();
 
-
-            Random rand = new Random();
-            File level1Words = new File("Level1Words.txt");
-            Scanner level1Reader = new Scanner(level1Words);
             if (level1Reader.hasNextLine()) {
-                String level1Data = level1Reader.nextLine();
+                level1Data = level1Reader.nextLine();
+
                 // Selecting random word from Level1Words.txt
                 words = level1Data.split("\\s+");
-                word = words[rand.nextInt(3)];
-                letters = word.split("");
-                letters_copy = letters.clone();
+                //word = words[rand.nextInt(3)];
+
 
                 List<String> list = new ArrayList<String>(Arrays.asList(words));
+                word = list.get(rand.nextInt(list.size()));
+                letters = word.split("");
+                letters_copy = letters.clone();
                 list.remove(word);
                 words = list.toArray(new String[0]);
                 System.out.println(Arrays.toString(words));
+                System.out.println(list);
+                writer = new FileWriter(level1Words, false);
+                for (String item : list) {
+                    writer.write(item+ " ");
+                }
+                //writer.write(Arrays.toString(words));
+                writer.close();
+
 
                 for (int i = 0; i < letters.length; i++) {
                     //letters[i] = "_ ";
