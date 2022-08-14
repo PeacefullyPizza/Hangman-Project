@@ -153,7 +153,9 @@ public class HardLevel {
                         HardLevel.hardLevel();
                     }else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                         writer = new FileWriter(level3Words, false);
-                        writer.write("computer controller airplanes");
+                        writer.write("computer controller airplanes artifact saxophone persecution magnificent" +
+                                " bachelor luminous heavyweight kilometer bountiful rejected axolotl salmonella" +
+                                " vermilion seventeen original rainbow helicopter");
                         writer.close();
                         complete = true;
                         System.exit(0);
@@ -175,7 +177,9 @@ public class HardLevel {
                         HardLevel.hardLevel();
                     }else if (Objects.equals(answer, "N") || Objects.equals(answer, "n")) {
                         writer = new FileWriter(level3Words, false);
-                        writer.write("computer controller airplanes");
+                        writer.write("computer controller airplanes artifact saxophone persecution magnificent" +
+                                " bachelor luminous heavyweight kilometer bountiful rejected axolotl salmonella" +
+                                " vermilion seventeen original rainbow helicopter");
                         writer.close();
                         complete = true;
                         System.exit(0);
@@ -184,7 +188,9 @@ public class HardLevel {
         }
     }
             writer = new FileWriter(level3Words, false);
-            writer.write("computer controller airplane");
+            writer.write("computer controller airplanes artifact saxophone persecution magnificent bachelor" +
+                    " luminous heavyweight kilometer bountiful rejected axolotl salmonella vermilion" +
+                    " seventeen original rainbow helicopter");
             writer.close();
             System.out.println("All words have been used!\n*RELOADING WORDS*");
             counter = 0;
